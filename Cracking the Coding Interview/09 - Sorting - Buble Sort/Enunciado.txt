@@ -1,52 +1,77 @@
-We're going to make our own Contacts application! The application must
-perform two types of operations:
+Consider the following version of Bubble Sort:
 
-1. add name, where "name" is a string denoting a contact name. This must
-   store "name" as a new contact in the application.
-2. find partial, where "partial" is a string denoting a partial name to
-   search the application for. It must count the number of contacts starting
-   with "partial" and print the count on a new line.
+for (int i = 0; i < n; i++) {
 
-Given  sequential add and find operations, perform each operation in order.
+    for (int j = 0; j < n - 1; j++) {
+        // Swap adjacent elements if they are in decreasing order
+        if (a[j] > a[j + 1]) {
+            swap(a[j], a[j + 1]);
+        }
+    }
+
+}
+Task
+Given an n-element array, A = a0, a1, ..., a(n-1), of distinct elements,
+sort array A in ascending order using the Bubble Sort algorithm above. Once sorted, print the following three lines:
+
+1. Array is sorted in "numSwaps" swaps., where  is the number of swaps that
+   took place.
+2. First Element: "firstElement", where  is the first element in the sorted
+   array.
+3. Last Element: "lastElement", where  is the last element in the sorted
+   array.
+
+Hint: To complete this challenge, you must add a variable that keeps a
+running tally of all swaps that occur during execution.
 
 Input Format
-The first line contains a single integer, "n", denoting the number of
-operations to perform.
-Each line "i" of the "n" subsequent lines contains an operation in one of
-the two forms defined above.
+The first line contains an integer, "n", denoting the number of elements in
+array A.
+The second line contains "n" space-separated integers describing the
+respective values of a0, a1, ..., a(n-1).
 
 Constraints
-* 1 <= n <= 10^5
-* 1 <= |name| <= 21
-* 1 <= |partial| <= 21
-* It is guaranteed that "name" and "patial" contain lowercase English
-  letters only.
-* The input doesn't have any duplicate "Name" for the "add" operation.
+* 2 <= n <= 600
+* 1 <= ai <= 2x10^6, for all i that belongs [0m n-1]
 
 Output Format
-For each find partial operation, print the number of contact names starting
-with "partial" on a new line.
+You must print the following three lines of output:
 
-Sample Input
-4
-add hack
-add hackerrank
-find hac
-find hak
+1. Array is sorted in "numSwaps" swaps., where "numSwaps" is the number
+   of swaps that took place.
+2. First Element: "firstElement", where "firstElement" is the first element
+   in the sorted array.
+3. Last Element: "lastElement", where "lastElement" is the last element in
+   the sorted array.
 
-Sample Output
-2
-0
+Sample Input 0
+3
+1 2 3
 
-Explanation
+Sample Output 0
+Array is sorted in 0 swaps.
+First Element: 1
+Last Element: 3
 
-We perform the following sequence of operations:
+Explanation 0
+The array is already sorted, so 0 swaps take place and we print the
+necessary three lines of output shown above.
 
-1. Add a contact named hack.
-2. Add a contact named hackerrank.
-3. Find and print the number of contact names beginning with hac. There are
-   currently two contact names in the application and both of them start
-   with hac, so we print 2 on a new line.
-4. Find and print the number of contact names beginning with hak. There are
-   currently two contact names in the application but neither of them start
-   with hak, so we print 0 on a new line.
+Sample Input 1
+3
+3 2 1
+
+Sample Output 1
+Array is sorted in 3 swaps.
+First Element: 1
+Last Element: 3
+
+Explanation 1
+The array is not sorted, and its initial values are: {3, 2, 1}. The following
+3 swaps take place:
+1. {3, 2, 1} --> {2, 3, 1}
+2. {2, 3, 1} --> {2, 1, 3}
+3. {2, 1, 3} --> {1, 2, 3}
+
+At this point the array is sorted and we print the necessary three lines of
+output shown above.
