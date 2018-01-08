@@ -27,7 +27,7 @@ Constraints
 * 1 <= t <= 50
 * 2 <= money <= 10^9
 * 2 <= n <= 5 x 10^4
-* 1 <= cost[i] <= 10^9, where  i <= i <= n
+* 1 <= cost[i] <= 10^9, where  1 <= i <= n
 * It is guaranteed that there will always be a unique solution.
 
 Output Format
