@@ -1,44 +1,39 @@
 //Input
-var t = 2;
-//var arr = [4, 5, [1, 4, 5, 3, 2], 4, 4, [2, 2, 4, 3]];
-money = 4;
-numberOfFlavors = 5;
+
+//NOTE: after you press the run button, it gives a message saying that:
+//"No sample test-cases for this question. Please test your code against
+// custom input."
+//You have to check the "Test against custom input" checkbox, copy the sample
+//input and finally press the SUBMIT CODE button
+//Works OK!!!!
+
+var money = 4;
+var n = 5;
 var arr = [1,4,5,3,2];
 
+// var money = 4;
+// var n = 4;
+// var arr = [2, 2, 4, 3];
+
 //Solution
-function eval(money, numberOfFlavors, arr){
-    var hash = new Array(numberOfFlavors+2).join(0).split("").map(parseInt);
-    hash[1] = 0;
-    console.log("hash: " + hash + "    length: " + hash.length + "\n\n");
+function eval(money, n, arr){
+    var hash = new Array(n+2);
 
-    for (var i = 0 ; i < numberOfFlavors; i++){
+    for (var i = 0 ; i < n ; i++){
         var index = arr[i];
-
-        console.log("money: " + money + "    cost: " + index + "    " + (hash[money-index] !== 0));
-
-        if( (hash[money - index]) !== 0){
-            console.log("respuesta: " + hash[(money - index)] + " " + arr[i]);
+        if( (hash[money-index] != undefined)   ){
+            console.log( (hash[money-index]+1)  + " " + (i+1) );
             break;
         }
-        if(hash[index] == 0){
-            hash[index] = arr[i];
+        if(hash[index] == undefined){
+            hash[index] = i;
         };
-
-        console.log("i: " + i + "    cost: " + index + "    hash: " + hash);
-        //console.log("hash[" + arr[i] + "]: " + hash[(arr[i])] + "    arr[" + i + "]: " + arr[i] + "\n\n");
     };
-
-
-
-
-
-
-
 
     return "Hola";
 };
 
 
 
-retorno = eval(money, numberOfFlavors, arr);
+retorno = eval(money, n, arr);
 
