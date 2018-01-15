@@ -30,7 +30,7 @@ function mergeSort (arr) {
     const middle = Math.floor(arr.length / 2) // get the middle item of the array rounded down
     const left = arr.slice(0, middle) // items on the left side
     const right = arr.slice(middle) // items on the right side
-    console.log("arr: " + arr + "    middle:" + middle + "    left: " + left + "    right: " + right + "\n\n");
+    console.log("arr: " + arr + "    middle:" + middle + "    left: " + left + "    right: " + right);
 
     return merge(mergeSort(left), mergeSort(right));
   }
@@ -45,7 +45,7 @@ function mergeSort (arr) {
 
     while (indexLeft < left.length && indexRight < right.length) {
       if (left[indexLeft] < right[indexRight]) {
-        
+
         result.push(left[indexLeft]);
         indexLeft++;
       } else {
@@ -55,7 +55,10 @@ function mergeSort (arr) {
         indexRight++;
       }
     }
-    return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight))
+
+    result = result.concat(left.slice(indexLeft)).concat(right.slice(indexRight))
+    console.log("result: " + result + "\n\n");
+    return result;
   }
 
 
