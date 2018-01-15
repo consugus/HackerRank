@@ -3,16 +3,64 @@ var d = 2;
 var n = 5;
 var arr1 = [1, 1, 1, 2, 2];
 var arr2 = [2, 1, 3, 1, 2];
+var arr3 = [2, 5, 1, 3, 7, 2, 3, 8, 6, 3];
 
 var counter = 0;
+var swaps = 0;
+
+retorno = countInversions(n, arr2);
 
 //Solution
 function countInversions(n, arr){
-    console.log("arr before: " + arr);
-    var counter = quicksort(arr, 0, n-1);
-    return counter;
-
+    //console.log("arr before: " + arr);
+    //var counter = quicksort(arr, 0, n-1);
+    return mergeSort(arr);
 };
+
+
+
+
+// Split the array into halves and merge them recursively
+function mergeSort (arr) {
+    if (arr.length === 1) {
+      // return once we hit an array with a single item
+      return arr
+    }
+
+    const middle = Math.floor(arr.length / 2) // get the middle item of the array rounded down
+    const left = arr.slice(0, middle) // items on the left side
+    const right = arr.slice(middle) // items on the right side
+    console.log("arr: " + arr + "    middle:" + middle + "    left: " + left + "    right: " + right + "\n\n");
+
+    return merge(mergeSort(left), mergeSort(right));
+  }
+
+  // compare the arrays item by item and return the concatenated result
+  function merge (left, right) {
+
+    let result = []
+    let indexLeft = 0
+    let indexRight = 0
+    var swaps = 0;
+
+    while (indexLeft < left.length && indexRight < right.length) {
+      if (left[indexLeft] < right[indexRight]) {
+        
+        result.push(left[indexLeft]);
+        indexLeft++;
+      } else {
+        // swaps++;
+        // console.log("swapess: " + swaps);
+        result.push(right[indexRight]);
+        indexRight++;
+      }
+    }
+    return result.concat(left.slice(indexLeft)).concat(right.slice(indexRight))
+  }
+
+
+
+
 
 function quicksort(arr, left, right){
     var i = left;
@@ -67,5 +115,5 @@ function countInversions1(n, arr){
 };
 
 
-retorno = countInversions(n, arr2);
+
 
