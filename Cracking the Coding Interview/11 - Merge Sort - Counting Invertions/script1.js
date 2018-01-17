@@ -8,13 +8,14 @@ var arr3 = [2, 5, 1, 3, 7, 2, 3, 8, 6, 3];
 var counter = 0;
 var swaps = 0;
 
-retorno = countInversions(n, arr2);
+retorno = countInversions(n, arr3);
 
 //Solution
 function countInversions(n, arr){
     //console.log("arr before: " + arr);
     //var counter = quicksort(arr, 0, n-1);
     return mergeSort(arr);
+
 };
 
 
@@ -45,14 +46,15 @@ function mergeSort (arr) {
 
     while (indexLeft < left.length && indexRight < right.length) {
       if (left[indexLeft] < right[indexRight]) {
-
         result.push(left[indexLeft]);
         indexLeft++;
+        console.log("result: " + result);
       } else {
         // swaps++;
         // console.log("swapess: " + swaps);
         result.push(right[indexRight]);
         indexRight++;
+        console.log("result: " + result);
       }
     }
 
