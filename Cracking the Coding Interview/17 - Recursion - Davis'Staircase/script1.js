@@ -1,19 +1,9 @@
 //Input
-var n = 4;
+var s = 4;
 
 //Solution
-function fibonacci(n){
-    if (n > 1){
-        return ( fibonacci(n-1) + fibonacci(n-2) ); //función revursiva
-    };
-    if(n == 0){ //caso base
-        //console.log("entró en el cero");
-        return 0;
-    };
-    if(n == 1){ //caso base
-        //console.log("entró en el cero");
-        return 1;
-    };
+function solve(s){
+   return "hola";
 };
 
-var retorno = fibonacci(n);
+var retorno = solve(s);
