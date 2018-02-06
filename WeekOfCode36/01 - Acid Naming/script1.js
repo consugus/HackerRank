@@ -19,8 +19,6 @@ var acidNames1 = ["hydrochloric", "rainbowic", "idontevenknow"];
 // var q = 1;
 // var acidNames2 = ["hydro ic"];
 
-//Solution
-
 function eval(n, acidNames){
     for (var i = 0 ; i < n ; i++){
         console.log(acidNaming(acidNames[i]));
@@ -28,16 +26,8 @@ function eval(n, acidNames){
     return "Hola";
 };
 
-
-
-
 function acidNaming(acid_name){
 
-    // if(acid_name == "hydroic"){
-    //     return "not an acid";
-    // };
-
-    //if( !hasSufix(acid_name) || acid_name.length == 2 ){
     if( !hasSufix(acid_name) ){
         return "not an acid";
     };
