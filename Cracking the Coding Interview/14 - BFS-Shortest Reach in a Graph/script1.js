@@ -2,12 +2,9 @@
 
 
 //Solution
-function eval(){
+function solve(){
     
     return "Hola";
-};
+}
 
-
-
-retorno = eval();
-
+var retorno = solve();
