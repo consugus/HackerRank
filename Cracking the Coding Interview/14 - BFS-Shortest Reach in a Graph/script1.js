@@ -3,7 +3,7 @@
 
 //Solution
 function solve(){
-    
+
     return "Hola";
 }
 
