@@ -1,0 +1,99 @@
+Complex physics experiments often have an underlying simple mathematical
+structure. In one such experiment that compares mathematical and empirical
+values, you are given three integer arrays, and asked to compute the
+experiment result mathematically.
+
+From the given input arrays "x", "y and "z", you are required to generate 3
+arrays "h", "c" and "l", each of equal length "n", based on the following
+function.
+
+A function F(i) is defined for a given "i", where a value of "j" is chosen
+such that hj*ci - cj*hi is maximum where 1 <= j <= i - l[i].
+
+Let the G(u) = SUM from "i" = 1 to "u" F(i) modulo 10^9 + 7. Your task is to find G(n).
+
+see image1.jpg
+
+Arrays "h", "c" and "l" are generated from "x", "y" and "z", as follows:
+* h1 = x1, c1 = y1, and l1 = z1
+* hi = xi XOR G(i -1)
+* ci = yi XOR G(i -1)
+* li = zi XOR G(i -1)
+
+where 1 <= i <= "n" (XOR is a bitwise xor operation).
+
+For example, given x = [3, 4, 14, 5, 6], y = [4, 9, 12, 8, 9] , z = [0, 0, 9, 12, 13]
+i   hi  ci  li  jmax     F(i)      G(i)
+1	3	4	0	1	   3*4 - 3*4	0
+2	4	9	0	1	   9*3 - 4*4	11
+
+Complete the function "expertComputation" that takes 3 integer arrays as
+input, and return a single integer denoting the appropriate value for G(n).
+
+Input Format
+* The first line contains a single integer  denoting the length of the arrays.
+* Next  lines contain arrays "x", "y" and "z", respectively.
+
+Constraints
+* 1 <= n <= 10^6
+* 1 <= hi <= 10^7
+* hi < h(i+1)  where i < n.
+* 1 <= ci <= 10^7
+0 <= li <= i-1
+
+Output Format
+Output the appropriate answer.
+
+Sample Input 0
+5
+3 4 14 5 6
+4 9 12 8 9
+0 0 9 12 13
+
+Sample Output 0
+17
+
+Explanation 0
+Given that,
+
+x = [3, 4, 14, 5, 6]
+y = [4, 9, 12, 8, 9]
+z = [0, 0, 9, 12, 13]
+
+For every value of  from  to ,
+i   hi  ci  li  jmax     F(i)      G(i)
+1	3	4	0	 1	   3*4 - 3*4	0
+2	4	9	0	 1	   3*9 - 4*4	11
+3	5	7	2	 1	   3*7 - 4*5	12
+4	9	4	0	 4	   4*9 - 4*9	12
+5	10	5	1	 4	   5*9 - 4*10	17
+
+From the table it is clear that,
+
+h = [3, 4, 5, 9, 10]
+c = [4, 9, 7, 4, 5]
+l = [0, 0, 2, 0, 1]
+
+Before computing F(i) in every step, choose j in such a way that the maximum
+value of hj*ci - cj*hi can be obtained.
+
+For example, in the case of F(4), j = 1, 2, 3, 4
+
+Hence,
+j = 1 ==> 3x4 - 4x9 = -24
+j = 2 ==> 4x4 - 9x9 = -65
+j = 3 ==> 5x4 - 7x9 = -43
+j = 4 ==> 4x9 - 4x9 = 0 ,which is the maximum value.
+
+When F(i) is computed in a similar manner for all values of "i", F would be
+0, 11, 1, 0, 5 for each "i" respectively. So the answer is
+G(5) = 17 mod (10^9+7) = 17
+
+Sample Input 1
+3
+2 6 4
+1 9 11
+0 0 14
+
+Sample Output 1
+18
