@@ -12,7 +12,7 @@ function eval(n, t, width, cases){
     for (var i = 0 ; i < t ; i++){
         var myCase = cases[i];
         answer = serviceLane(myCase, n, width);
-        console.log("2" + answer);
+        //console.log("2" + answer);
     };
     return "Hola";
 };
