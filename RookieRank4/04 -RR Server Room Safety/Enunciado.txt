@@ -1,0 +1,77 @@
+You are appointed as a system admin in a firm, and it is your responsibility
+to check the safety of the server racks in one of the server rooms. The
+server racks are arranged in an array. If any rack reaches another rack when
+it falls, it will cause the other rack to fall. Safety rules require that at
+least some of the racks should remain standing if one of the ends falls
+toward the others.
+
+Your task is to determine whether either or both ends will cause all racks
+to fall should one be tipped. To determine if a rack will knock over another
+rack, use the following two rules*:
+
+1. Left rack falls: position[i] + h[i] >= position[i_to_test]
+2. Right rack falls:  position[i] - h[i] <= position[i_to_test]
+
+* Assume the position of a rack is position[i] and its height is h[i].
+
+The test is based on a single event. In other words, if it takes toppling
+both the left and right ends to knock down all the servers, you still pass
+the safety inspection.
+
+An example follows:
+In the image shown below, rack "R1" can trigger the fall of rack "R2" since
+1 + 3 >=4, but rack "R2" can't trigger the fall of rack "R1" since
+4 - 2 Not <= 1.
+
+see image1.jpg
+
+Complete the function "checkAll", which takes the positions and heights of
+the server racks as input, and return a string like:
+["LEFT", "RIGHT", "BOTH", "NONE"] representing which of the ends is unsafe.
+
+Input Format
+In the first line, the number of racks, "n", will be given.
+In the second line, the position of each rack, "x[i]", will be given.
+In the third line, the height of each rack, "h[i]", will be given.
+
+Constraints
+* 0 < n <= 100
+* 1 < x[i] <= 1000
+* 0 < h[i] <= 1000
+
+Output Format
+If the racks fall over no matter from which end it gets triggered, then
+return "BOTH". If the racks fall over due to rack at leftmost or rightmost,
+then return "LEFT" or "RIGHT" respectively. If neither end toppling will
+cause all the racks to fall over, return "NONE".
+
+Sample Input 0
+5
+1 2 3 4 5
+1 1 1 1 1
+
+Sample Output 0
+BOTH
+
+Explanation 0
+Each of the piles in this case are situated 1 unit away from each other,
+and the height of each pile is also 1 unit. All of the piles will fall over
+regardless of the side which is pushed over.
+
+see image2.jpg
+
+Sample Input 1
+5
+1 2 3 4 8
+1 1 1 1 1
+
+Sample Output 1
+NONE
+
+Explanation 1
+If the leftmost pile is pushed over, only the first four piles will fall
+over. The last pile will remain untouched, as none of the previous ones can
+reach it. Similarly, if the rightmost pile is pushed over, it can't reach
+any of the others.
+
+see image3.jpg
