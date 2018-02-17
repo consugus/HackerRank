@@ -1,0 +1,47 @@
+You're at a party and the host has arranged a game of cards. You are given
+a number of cards and try to create as many combinations from those cards
+as possible that result in a winning hand. A winning hand is the one where
+the product of the numbers on the cards modulo a given value, the modulo
+divisor is equal to another given value, the target value.
+
+Complete the function "winningHands" to return an integer denoting the
+number of winning hands.
+
+Input Format
+Input contains two lines. The first line contains three space-separated
+integers "n", "m" and "x" denoting the number of cards, the modulo divisor
+and the target value respectively. The second line contains "n"
+space-separated integers. The ith integer denotes the number written on
+card "i".
+
+Constraints
+    * 1 <= n <= 30
+    * 1 <= m <= 10^6
+    * 0 <= x <= (m-1)
+    * 1 <= number of cards <= 10^7
+
+Output Format
+Print the number of winning hands from the given cards.
+
+Sample Input 0
+3 3 2
+2 2 2
+
+Sample Output 0
+4
+
+Explanation 0
+
+    see image.jpg
+
+Consider the following hands (given by their indices): .
+{1}, {2}, {3}, {1, 2}, {2, 3}, {1, 2, 3}
+* 2 mod 3 = 2
+* 2 mod 3 = 2
+* 2 mod 3 = 2
+* (2x2) mod 3 = 1
+* (2x2 mod 3 = 1
+* (2x2 mod 3 = 1
+* (2x2x2) mod 3 =  2
+
+Four hands have product modulo 3 = 2.
