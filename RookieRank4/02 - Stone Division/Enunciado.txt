@@ -1,3 +1,5 @@
+https://www.hackerrank.com/challenges/stone-division/problem
+
 Consider the following game:
 * There are two players, First and Second, sitting in front of a pile of "n"
   stones. First always plays first.

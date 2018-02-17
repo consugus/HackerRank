@@ -1,3 +1,5 @@
+https://www.hackerrank.com/contests/rookierank-4/challenges/exam-rush
+
 Your final exam is approaching and you haven't begun to study. In order to
 have the best chance of passing the course, you resolve to study from now
 until exam time. Chapters vary in length, but not in value towards a passing

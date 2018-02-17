@@ -1,3 +1,5 @@
+https://www.hackerrank.com/contests/rookierank-4/challenges/server-room-safety
+
 You are appointed as a system admin in a firm, and it is your responsibility
 to check the safety of the server racks in one of the server rooms. The
 server racks are arranged in an array. If any rack reaches another rack when

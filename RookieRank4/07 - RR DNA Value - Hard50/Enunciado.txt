@@ -1,0 +1,71 @@
+https://www.hackerrank.com/contests/rookierank-4/challenges/dna-value
+
+DNA sequence chains are made of nucleobases or nucleotides namely Guanine,
+Adenine, Cytosine and Thymina. Substrings in a DNA sequence are often
+indicative of amino acid chains, i.e proteins.
+
+Your goal is to find the longest prefix that repeats itself before and
+after each position, with the prefix overlapping at that position alone. In
+other words, if you are looking at the sequence item "i", the substring
+ending at position i:s[i - k + 1, i] is the same as the substring beginning
+at position i:s[i, 1 + k - 1] . Both of those substrings must match a "k" 
+length prefix: s[0, k - 1]. Compute the length of the longest substring for
+which all three conditions hold, i.e for every index "i", the largest value
+of "k" is to be computed such that s[i-k+1, i] = s[i, i+k-1] = s[0, k-1].
+
+For example, consider the following arbitrary nucleotide sequence. For each
+index "i", the largest possible value of "k" is shown below it.
+
+    see imagei.jpg
+
+Note: At i = 6 and i = 8, two values of k=1 and k=3 both hold good. k=3 is
+the correct answer since it is the larger value.
+
+Complete the function "piVsZ" which accepts an input string and returns an
+integer array denoting the largest value of "k" for each character of the
+input string.
+
+Input Format
+Input contains single string  consisting of lowercase English letters,
+ascii(a...z).
+
+Constraints
+Length of "s" doesn't exceed 5x10^5
+
+Output Format
+Output |s| integers for each "i" between 0 and |s|- 1: maximum integer "k",
+such that s[i - k + 1, i] = s[i, i + k - 1] = s[0, k - 1].
+
+Sample Input 0
+babbabababb
+
+Sample Output 0
+1 0 1 1 0 3 0 3 0 1 1
+
+Explanation 0
+
+For the string s = babbabababb, for every index "i", the largest value of
+"k" is computed such that s[i - k + 1, i] = s[i, i + k - 1] = s[0, k - 1].
+
+For example,
+* For i = 0, at k = 1, s[0, 0] = s[0, 0] = b. Hence the largest value of "k"
+  to satisfy the condition is 1.
+* For i = 1, no such "k" is feasible, hence resulting in  and 0.
+* For i = 5, two values of "k", 1 and 3, satisfy the given condition. In
+  such a case, k = 3, the largest value of "k" should be chosen.
+The table below illustrates how "k is computed for every character in the
+string.
+
+Note:  denotes empty/null set.
+i   k   s[i - k + 1, i]     s[i, i + k - 1]     s[0, k - 1]
+0	1	        b	                b	             b
+1	0           Ø                   Ø                Ø
+2	1	        b	                b	             b
+3	1	        b	                b	             b
+4	0	        Ø                   Ø                Ø
+5	3	        bab	                bab	             bab
+6	0	        b	                b	             b
+7	3	        bab	                bab	             bab
+8	0	        Ø                   Ø                Ø
+9	1	        b	                b	             b
+10	1	        b	                b	             b

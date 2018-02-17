@@ -1,3 +1,5 @@
+https://www.hackerrank.com/contests/rookierank-4/challenges/winning-hand-of-cards
+
 You're at a party and the host has arranged a game of cards. You are given
 a number of cards and try to create as many combinations from those cards
 as possible that result in a winning hand. A winning hand is the one where

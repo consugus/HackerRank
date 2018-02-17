@@ -1,3 +1,5 @@
+https://www.hackerrank.com/contests/rookierank-4/challenges/height-and-total-height-of-a-bst
+
 This problem will deal with trees. A few definitions follow:
 
     * internal node: any node of a tree with child elements (children)
