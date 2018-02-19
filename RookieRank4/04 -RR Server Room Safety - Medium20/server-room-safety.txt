@@ -1,0 +1,59 @@
+ import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static String checkAll(int n, int[] height, int[] position) {
+        //Is right side unsafe?
+        boolean right=true, left=true;
+        int i=0, j=1;
+        while(i!=j && j<height.length){
+            if(height[i]+position[i] >= position[j]){
+                j++;
+                if(j==height.length) break;
+            }else{
+                i++;
+            }
+            if(i==j){
+                left=false;
+            }
+        }
+        i=height.length-1;
+        j=height.length-2;
+        while(i!=j && j>-1){
+            if(position[i]-height[i] <= position[j]){
+                j--;
+                if(j<0) break;
+            }else{
+                i--;
+            }
+            if(i==j){
+                right=false;
+            }
+        }
+        if(left && right) return "BOTH";
+        if(left) return "LEFT";
+        if(right) return "RIGHT";
+        else return "NONE";
+
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] position = new int[n];
+        for(int position_i = 0; position_i < n; position_i++){
+            position[position_i] = in.nextInt();
+        }
+        int[] height = new int[n];
+        for(int height_i = 0; height_i < n; height_i++){
+            height[height_i] = in.nextInt();
+        }
+        String ret = checkAll(n, height, position);
+        System.out.println(ret);
+        in.close();
+    }
+}

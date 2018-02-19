@@ -1,0 +1,120 @@
+import java.io.*;
+import java.math.*;
+import java.text.*;
+import java.util.*;
+import java.util.regex.*;
+
+public class Solution {
+
+
+   private static class Node{
+        private Node left;
+        private Node right;
+        int data;
+
+        public Node(int data) {
+            this.data = data;
+        }
+
+        public Node getLeft() {
+            return left;
+        }
+
+        public void setLeft(Node left) {
+            this.left = left;
+        }
+
+        public Node getRight() {
+            return right;
+        }
+
+        public void setRight(Node right) {
+            this.right = right;
+        }
+
+        public int getData() {
+            return data;
+        }
+
+        public void setData(int data) {
+            this.data = data;
+        }
+
+        public void insert(int newData){
+            if(newData > this.data){
+                if(this.right == null) right = new Node(newData);
+                else right.insert(newData);
+            }
+            if(newData < this.data){
+                if(left == null) left = new Node(newData);
+                else left.insert(newData);
+            }
+        }
+
+        public int getHeight(){
+            int rightHeight=0, leftHeight=0;
+            if(right != null) rightHeight = right.getHeight() +1;
+            if(left != null) leftHeight = left.getHeight() +1;
+            if(rightHeight > leftHeight) return rightHeight;
+            else return leftHeight;
+        }
+
+        public int getTotalHeight(){
+                int totalHeight=0;
+                if(left != null) totalHeight += left.getTotalHeight();
+                totalHeight += this.getHeight();
+                if(right != null) totalHeight += right.getTotalHeight();
+                return totalHeight;
+            }
+
+        }
+        /*
+         * Complete the function below.
+         */
+        static int[] heightAndTotalHeight(int[] arr) {
+            Node root = new Node(arr[0]);
+            for (int i = 1; i < arr.length; i++) {
+                root.insert(arr[i]);
+            }
+            int rootHeight = root.getHeight();
+            int totalHeight = root.getTotalHeight();
+            int[] solution = {rootHeight, totalHeight};
+            return solution;
+        }
+
+
+    private static final Scanner scan = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+        BufferedWriter bw = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        if (bw == null) {
+            bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        }
+
+        int arrSize = Integer.parseInt(scan.nextLine().trim());
+
+        int[] arr = new int[arrSize];
+
+        String[] arrItems = scan.nextLine().split(" ");
+
+        for (int arrItr = 0; arrItr < arrSize; arrItr++) {
+            int arrItem = Integer.parseInt(arrItems[arrItr].trim());
+            arr[arrItr] = arrItem;
+
+        }
+
+        int[] result = heightAndTotalHeight(arr);
+
+        for (int resultItr = 0; resultItr < result.length; resultItr++) {
+            bw.write(String.valueOf(result[resultItr]));
+
+            if (resultItr != result.length - 1) {
+                bw.write("\n");
+            }
+        }
+
+        bw.newLine();
+
+        bw.close();
+    }
+}
