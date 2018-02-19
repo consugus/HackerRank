@@ -1,0 +1,51 @@
+https://www.hackerrank.com/challenges/stone-division/problem
+
+Consider the following game:
+* There are two players, First and Second, sitting in front of a pile of "n"
+  stones. First always plays first.
+* There is a set, "s", of "m" distinct integers defined as
+  s = {s0, s1, ..., s(m-1)}.
+* The players move in alternating turns. During each turn, a player chooses
+  some s[i] (that belongs to s) and splits one of the piles into exactly s[i]
+  smaller piles of equal size. If no s[i] exists that will split one of the
+  available piles into exactly s[i] equal smaller piles, the player loses.
+* Both players always play optimally.
+Given "n", "m", and the contents of "s", find and print the winner of the
+game. If First wins, print First; otherwise, print Second.
+
+Input Format
+* The first line contains two space-separated integers describing the
+  respective values of "n" (the size of the initial pile) and "m" (the size
+  of the set).
+* The second line contains "m" distinct space-separated integers describing
+  the respective values of s0, s1, ..., s(m-1).
+
+Constraints
+* 1 <= n <= 10^18
+* 1 <= m <= 10
+2 <= s[i] <= 10^18
+
+Output Format
+Print First if the First player wins the game; otherwise, print Second.
+
+Sample Input 0
+15 3
+5 2 3
+
+Sample Output 0
+Second
+
+Explanation 0
+The initial pile has "15" stones, and s = {5, 2, 3}. During First's initial
+turn, they have two options:
+1. Split the initial pile into 5 equal piles, which forces them to lose
+   after the following sequence of turns:
+
+   see figure1.jpg
+
+2. Split the initial pile into 3 equal piles, which forces them to lose
+   after the following sequence of turns:
+
+   see figure1.jpg
+Because First never has any possible move that puts them on the path to
+winning, we print Second as our answer.

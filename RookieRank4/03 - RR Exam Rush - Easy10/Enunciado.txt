@@ -1,0 +1,42 @@
+https://www.hackerrank.com/contests/rookierank-4/challenges/exam-rush
+
+Your final exam is approaching and you haven't begun to study. In order to
+have the best chance of passing the course, you resolve to study from now
+until exam time. Chapters vary in length, but not in value towards a passing
+grade, so you want to study as many complete chapters as possible. The order
+of chapters doesn't matter, but you must complete a chapter before it will
+help your grade.
+
+Your task is to maximize the number of complete chapters you can study
+between now and exam time.
+
+Complete the function "examRush" to return the integer value representing
+the maximum number of chapters you can study before the exam.
+
+Input Format
+The first line contains an integer number, "n" (number of chapters) and an
+integer number, "t" (hours left until the exam). Then there are "n" lines,
+each containing the time, "tm[i]" in hours required to study that chapter.
+
+Constraints
+* 1 <= n, tm <= 10^5
+* 1 <= t <= 10^9
+
+Output Format
+Print an integer number, which is the maximum number of chapters that can be
+studied completely before the start of the final examination.
+
+Sample Input 0
+2 2
+1
+2
+
+Sample Output 0
+1
+
+Explanation 0
+
+see image.jpg
+
+In this situation, you can either study chapter 1 or chapter 2 completely,
+but not both.
