@@ -1,11 +1,17 @@
 //Input
+s = "SOSSPSSQSSOR"; // 3
+s = "SOSSOT"; // 1
 
-
-retorno = eval();
+retorno = marsExploration(s);
 
 //Solution
-function eval(){
+function marsExploration(s){
+    var answer = "Hola";
 
+
+
+
+    return answer;
 };
 
 
