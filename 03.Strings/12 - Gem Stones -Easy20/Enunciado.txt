@@ -1,0 +1,32 @@
+Juninho descubrió varias rocas. Cada roca está compuesta por varios
+elementos, y cada elemento está representado por una letra minúscula latina
+de 'a' a 'z'. Un elemento puede estar presente varias veces en una roca. Un
+elemento se llama "elemento-gema" si ocurre al menos una vez en cada una de
+las rocas. Dada la lista de rocas con sus composiciones, usted tiene que
+imprimir cuántos tipos diferentes de elementos gema tiene Juninho.
+
+Formato de Entrada
+    * La primera línea está constituida por "n", el número de rocas.
+    * Cada una de las próximas "n" líneas contienen la composición de la
+      roca. Cada composición está constituida por letras minúsculas del
+      alfabeto latino.
+
+Formato de salida
+Imprima el número de diferentes tipos de elementos gema que tiene.
+
+Restricciones
+* 1 ≤ N ≤ 100
+* Cada composición está constituida sólo por letras minúsculas del alfabeto
+  latino ('a' - 'z').
+* 1 ≤ Longitud de cada composición ≤ 100
+
+Ejemplo de entrada
+3
+abcdde baccd eeabg
+
+Ejemplo de salida
+2
+
+Explicación
+Sólo "a", "b" se consideran elementos gema, ya que sólo están presentes en
+la composición de todas las rocas.
