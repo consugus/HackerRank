@@ -1,6 +1,9 @@
 //Input
 var t = 5
-var arr = [];
+var arr = ["AAAA", "BBBBB", "ABABABAB", "BABABA", "AAABBB"];
+
+// var t = 1;
+// var arr = ["AAAA"];
 
 retorno = eval(t, arr);
 
@@ -14,9 +17,11 @@ function eval(t, arr){
 
 function alternatingCharacters(s){
     var charactersDeleted = 0;
-
-
-
+    for(var i = 0 ; i < (s.length) ; i++){
+        if(s[i] == s[i+1]){
+            charactersDeleted++;
+        };
+    };
     return charactersDeleted;
 };
 
