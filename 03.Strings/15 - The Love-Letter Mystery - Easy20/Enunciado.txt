@@ -1,0 +1,45 @@
+James tomó una carta de amor que su amigo Harry escribió para su novia. Como
+es muy juguetón, James decidió predicar una pieza en su amigo y modificó
+todas las palabras de la carta por [palíndromos]
+(https://es.wikipedia.org/wiki/Pal%C3%ADndromo).
+
+Al modificar las letras de la palabra, él siguió dos reglas:
+    (a) Sólo podría reducir el valor de la letra. Por ejemplo, podría
+        cambiar de 'd' a 'c', pero no podría cambiar de 'c' a 'd'.
+    (b) Si tuviera que modificar repetidamente el valor de una letra, podría
+        hacerlo hasta que la letra se convierta en 'a'. Una vez que la letra
+        se cambió a 'a', ya no se podría modificar.
+
+Cada reducción en el valor de cualquier letra se contabiliza como una sola
+operación. Encuentre el número mínimo de operaciones que realiza para
+convertir una determinada cadena en un palíndromo.
+
+Formato de entrada
+    * La primera línea contiene un entero "t" (número de casos de prueba).
+    * Cada línea "t" siguiente contiene una cadena.
+
+Formato de salida
+Una sola línea que contiene el número de operaciones mínimas correspondientes
+a cada caso de ensayo.
+
+Restricciones
+    * 1 ≤ T ≤ 10
+    * 1 ≤ length de cadena ≤ 10^4
+Todos los caracteres son letras minúsculas del alfabeto inglés.
+
+Ejemplo de entrada # 00
+3
+abc
+Abcba
+abcd
+
+Ejemplo de salida # 00
+2
+0
+4
+
+Explicación
+Para el primer caso de prueba, ab*c* -> ab*b* -> ab*a*.
+Para el segundo caso de prueba, el abcba es una secuencia palíndroma.
+Para el tercer caso de prueba,
+abc*d* -> abc*c* -> abc*b* -> abc*a* = ab*c*a -> ab*b*a.
