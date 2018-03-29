@@ -1,0 +1,34 @@
+Given two strings, determine if they share a common substring. A substring
+may be as small as one character.
+
+Input Format
+    * The first line contains a single integer "p", the number of test cases.
+    * There will be  pairs of lines following:
+        - The first line contains string s1.
+        - The second line contains string s2.
+
+Constraints
+    * "a" and "b" consist of characters in the range ascii[a-z].
+    * 1 <= p <= 10
+    * 1 <= |s1|, |s2| <= 100.000
+
+Output Format
+For each pair of strings, print |YES| on a new line if the two strings share
+a common substring. Otherwise, print |NO| on a new line.
+
+Sample Input
+2
+hello
+world
+hi
+world
+
+Sample Output
+YES
+NO
+
+Explanation
+We have p = 2 pairs to check:
+    1. s1 = "hello", s2 = "world". The substrings "o" and "l" are
+       common to both strings.
+    2. s1 = "hi", s2 = "world". s1 and s2 share no common substrings.
