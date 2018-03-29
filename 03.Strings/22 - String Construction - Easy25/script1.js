@@ -18,7 +18,17 @@ function eval(n, arr){
 function stringConstruction(s){
     var totalCost = 0;
     var len = s.length;
-    //console.log("s: " + s + "(" + len + ")");
+    var hashS = new Array(27).join("0").split("").map(parseInt); hashS[1] = 0;
+
+    for(var i = 0 ; i < len ; i++){
+        var index = s.charCodeAt(i) - 97;
+        hashS[index]++;
+    };
+    for(var i = 0 ; i < hashS.length ; i++){
+        if(hashS[i] != 0){
+            totalCost++;
+        };
+    };
 
     return totalCost;
 };
