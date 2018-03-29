@@ -1,0 +1,49 @@
+Dothraki are planning an attack to usurp King Robert's throne. King Robert
+learns of this conspiracy from Raven and plans to lock the single door
+through which the enemy can enter his kingdom.
+
+        see game-of-thrones.png
+
+But, to lock the door he needs a key that is an anagram of a palindrome. He
+starts to go through his box of strings, checking to see if they can be
+rearranged into a palindrome.
+
+Complete the GameOfThrones function below to determine whether a given
+string can be rearranged into a palindrome.
+
+Input Format
+A single line which contains "s", the input string.
+
+Constraints
+    * 1 <= |s| <= 100.000
+    * "s" contains only lowercase letters in the range ascii[a ... z].
+
+Output Format
+A single line which contains |YES| or |NO| in uppercase.
+
+Sample Input 0
+aaabbbb
+
+Sample Output 0
+YES
+
+Explanation 0
+A palindromic permutation of the given string is bbaaabb.
+
+Sample Input 1
+cdefghmnopqrstuvw
+
+Sample Output 1
+NO
+Explanation 1
+Palindromes longer than 1 character are made up of pairs of characters.
+There are none here.
+
+Sample Input 2
+cdcdcdcdeeeef
+
+Sample Output 2
+YES
+
+Explanation 2
+An example palindrome from the string: ddcceefeeccdd.
