@@ -1,14 +1,19 @@
 //Input
-var s = "3943";                                 // 3993     ok
+var s = "3943";                                     // 3993             ok
 var n = 4; // 0 <= m <= 100.000
 var k = 1; // 0 <= m <= 100.000
 
-// var s = "092282"; var n = 6; var k = 3;      // 992298   ok
-// var s = "0011"; var n = 4; var k = 1;        // -1       ok
-// var s = "323"; var n = 3; var k = 1;        // 393       ok
-// var s = "5"; var n = 1; var k = 1;        // 9
-var s = "123515333"; var n = 8; var k = 9;
-// Anda perfectísimo para cualquier valor de k
+// var s = "092282"; var n = 6; var k = 3;          // 992298           ok
+// var s = "0011"; var n = 4; var k = 1;            // -1               ok
+// var s = "323"; var n = 3; var k = 1;             // 393              ok
+// var s = "5"; var n = 1; var k = 1;               // 9                ok
+// var s = "123515333"; var n = 8; var k = 9;
+// Anda perfectísimo para cualquier valor de k, desde 1 a 9
+// var s = "11119111"; var n = 8; var k = 4         // 91199119         ok
+//var s = "329"; var n = 3; var k = 2;              // 999              ok
+// var s = "118"; var n = 3; var k = 1;             // 818              ok
+// var s = "9711319"; var n = 7; var k = 4;         // 99111199         ok
+// var s = "128392759430124"; var n = 15; var k = 8;// 929394959493929  ok
 
 //No puedo evaluar los test cases que continuan fallando porque son entradas
 //muy grandes y no puedo ver dónde estaría fallando. Se queda así...
@@ -72,9 +77,6 @@ function highestValuePalindrome(s, n, k){
         };
     };
 
-
-
-
     // console.log( "(k-changesCounter) == 1: " + ((k-changesCounter) == 1) + "    (s.length%2) != 0:" + (s.length%2 != 0) );
     // console.log((k-changesCounter == 1) && (s.length%2 != 0));
     // console.log("length/2: "  + len/2 + "    characters[i]: " + characters[Math.floor(len/2)]);
@@ -90,7 +92,6 @@ function highestValuePalindrome(s, n, k){
     // console.log("characters: " + characters.toString());
     // console.log("k - changesCounter: " + (k - changesCounter) );
     // console.log("str: " + str);
-
 
     return str;
 };
