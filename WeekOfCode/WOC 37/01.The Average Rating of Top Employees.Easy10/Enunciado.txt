@@ -1,0 +1,47 @@
+The general manager of Byteland Company has decided to rate all of the employees
+for their performance during this year. The rating will be a score in the range
+of 90 - 100 (inclusive) points. The manager wants to compute the average rating
+of all employees whose rating is greater or equal to 90 since he wants to give
+them a bonus for their good performance.
+
+        See chart1.png
+
+Complete the function |averageOfTopEmployees()|  which takes in an integer array
+ "rating" denoting the ratings of the employees and prints the average rating of
+ employeeswho will get a bonus, with exactly 2 digits after the decimal point,
+ rounded half up.
+
+Input Format
+The first line contains a single integer "n" denoting the number of employees in
+the Byteland Company. Then, ""n" lines follow. The ith of them contains a single
+integer "rating[i]" denoting the rating of the ith employee.
+
+Constraints
+    * 5 <= n <= 200
+    * 0 <= rating[i] <= 100
+    * It's guaranteed that there is at least one employee with a rating >= 90
+    
+Output Format
+Print a single line containing a real number denoting the average rating of
+employees who will get a bonus. This number has to have exactly 2 digits after the
+decimal point, rounded half up. (For example, 95.345 should be rounded to 95.35,
+while 95.344 should be rounded to 95.34.)
+
+Sample Input 0
+5
+84
+92
+61
+50
+95
+
+Sample Output 0
+93.50
+
+Explanation 0
+
+There are only two employees whose rating is equal or greater to 90. They are
+theonly ones who are getting a bonus. Computing the average, we get:
+(92 + 95) / 2 = 93.50
+
+        See chart2.png

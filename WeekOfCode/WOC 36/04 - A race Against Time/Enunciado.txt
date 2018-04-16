@@ -1,0 +1,88 @@
+A relay race is being organised in a school for middle school students by
+two high school students, Mason and Madison. Mason starts with the baton
+and Madison receives the baton at the final destination. There are middle
+school students in between Mason and Madison, and each of their heights
+is given. Mason's height , too, is given. Initially, the baton is with
+Mason and it is passed to the destination in a manner similar to a relay
+race.
+
+1) At any moment, the current baton carrier has an option to hand over the
+   baton to the student at the current position or to continue to the next
+   position. However, if the student at the given position is taller than
+   the current baton carrier, it is mandatory to hand over the baton because
+   it is a safer option according to Mason.
+
+2) It takes one second to move between consecutive positions.
+
+3) Whenever the baton is handed over, there is a time and price associated
+   with it.
+
+4) The time taken, in seconds, is the absolute difference between the
+   heights of the current baton carrier and the student to whom the baton is
+   handed.
+
+5) The student to whom the baton is passed charges a given price.
+
+Note: Price charged by a baton carrier can be negative too.
+
+The baton must be sent to Madison in the minimum possible sum of time and
+price. Complete the function Solve which takes the number of middle school
+students, Mason's height, and heights and prices charged by middle school
+students as input, and return the minimum possible sum of time and price
+required for the baton to reach Madison.
+
+        Also, note that no handover takes place once the baton has
+        reached the destination.
+
+Input Format
+Each input consists of four lines. The first line contains the integer "N",
+where "N-1" denotes the number of middle school students. 
+The second line contains the integer "h", denoting Mason's height. The
+third line consists of "N-1" integers, denoting the height of each middle
+school student. The last line consists of "N-1" integers, denoting price
+charged by each middle school student.
+
+Constraints
+* 1 < N <= 100.000
+* 0 <= Hi <= 10^9
+* 0 <= h <= 10^9
+* -10^9 <= Pi <= 10^9
+
+Output Format
+The output contains one single integer denoting the required minimum sum of
+time and price in which the baton can be sent to Madison.
+
+Sample Input 0
+4
+5
+2 6 2
+2 3 2
+
+Sample Output 0
+8
+
+Explanation 0
+Here, Mason's height is 5.
+
+In the optimal case first the baton is passed to the "2nd" student.
+
+        exchange time =abs(6-5) = 1 second
+        baton has moved 2 places , so another 2 seconds
+        Total time = 3 seconds
+        The price charged = 3
+Then, the second student takes it to the destination.
+        baton has moved 2 places , so another 2 seconds
+Total time taken = 3 seconds + 2 seconds = 5 seconds
+Total Price = 3
+Sum = 3 + 5 = 8
+
+see image.jpg
+
+Sample Input 1
+4
+5
+2 3 1
+2 3 2
+
+Sample Output 1
+4
