@@ -17,7 +17,7 @@ function eval(firstLine, secondLine){
     var n = nm[0]; var m = nm[1];
     var coins = secondLine.split(" ").map( x => parseInt(x) );
     coins.sort( (a, b) => a-b );
-    console.log(getWays(n,coins));
+    console.log(getWays(n, coins));
     return "Hola";
 };
 
