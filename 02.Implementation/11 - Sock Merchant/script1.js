@@ -14,6 +14,21 @@ function eval(firstLine, secondLine){
 
 
 function sockMerchant(n , ar){
+    var colors = new Array(100 + 1);
+    var pairs = 0;
+    for(var i = 0 ; i < colors.length ; i++){
+        colors[i] = 0;
+    };
 
-    return 2;
+    for(var i = 0 ; i < n ; i++){
+        colors[ar[i]]++;
+    };
+
+
+    for(var i = 0 ; i < colors.length ; i++){
+        pairs += Math.floor(colors[i]/2);
+        console.log("colors[" + i + "]: " + colors[i] + "    pairs: " + pairs);
+    };
+
+    return pairs;
 };;
