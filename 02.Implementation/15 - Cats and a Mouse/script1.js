@@ -18,7 +18,14 @@ function eval(firstLine, arr){
 
 
 function catAndMouse(x, y, z){
+    var answer;
+    if(Math.abs(x-z) == Math.abs(y-z)){
+        answer = "Mouse C";
+    }else if(Math.abs(x-z) < Math.abs(y-z)){
+        answer = "Cat A";
+    } else{
+        answer = "Cat B";
+    };
 
-
-    return 2;
+    return answer;
 };
