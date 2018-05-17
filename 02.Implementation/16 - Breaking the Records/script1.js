@@ -6,7 +6,7 @@ retorno = eval(firstLine, secondLine);
 
 //Solution
 function eval(firstLine, secondLine){
-    var score = secondLine.split("").map( x => parseInt(x) );
+    var score = secondLine.split(" ").map( x => parseInt(x) );
 
     console.log(breakingRecords(score));
     return  "Hola";
@@ -14,8 +14,23 @@ function eval(firstLine, secondLine){
 
 
 function breakingRecords(score){
+    var highestRecordCount = 0;
+    var highestRecord = score[0];
+    var lowestRecordCount = 0;
+    var lowestRecord = score[0];
+    var len = score.length;
+    for(var i = 1 ; i < len ; i++){
+        if(score[i] > highestRecord){
+            highestRecord = score[i];
+            highestRecordCount++;
+        };
+        if(score[i] < lowestRecord){
+            lowestRecord = score[i];
+            lowestRecordCount++;
+        };
+        //console.log(i + " highestRecord: " + highestRecord + "    highestRecordCount: "  + highestRecordCount + "    lowestRecord: " + lowestRecord + "    lowestRecordCount: " + lowestRecordCount);
+    };
 
-
-    return 2
+    return highestRecordCount + " " + lowestRecordCount;
 };
 
