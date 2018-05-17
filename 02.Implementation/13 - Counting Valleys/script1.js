@@ -13,6 +13,18 @@ function eval(n, s){
 
 
 function countingValleys(n, s){
+    var altitude = 0;
+    var valleys = 0;
+    for(var i = 0 ; i < n ; i++){
+        if(s[i] == "U"){
+            altitude++;
+        } else{
+            altitude--;
+        };
+        if(altitude == 0 && s[i] == "U"){
+            valleys++;
+        };
+    };
 
-    return 15;
+    return valleys;
 };
