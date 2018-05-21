@@ -16,6 +16,15 @@ function eval(firstLine, secondLine){
 
 function designerPdfViewer(heights, word) {
     var area = 0;
-
+    var wLen = word.length;
+    var wTall = 0;
+    for(var i = 0 ; i < wLen ; i++){
+        //console.log("Letter[" + i + "]: " + word[i] + "    charCode: " + (word.charCodeAt(i)-97) + "    tall: " + heights[word.charCodeAt(i)-97]);
+        if(wTall < heights[word.charCodeAt(i) - 97] ){
+            wTall = heights[word.charCodeAt(i)-97];
+        };
+    };
+    //console.log(wTall);
+    area = wLen * wTall;
     return area;
 }
