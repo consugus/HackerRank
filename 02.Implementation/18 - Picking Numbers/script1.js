@@ -23,25 +23,19 @@ function eval(firstLine, secondLine){
 };
 
 function pickingNumbers(n, a) {
-    var len = n;
-    a.sort( (a,b) => a-b  );
-    console.log("a: " + a + "\n\n");
+    var hashFrecuencies = new Array(100);
+    for(var i = 0 ; i < hashFrecuencies.length ; i++){
+        hashFrecuencies[i] = 0;
+    };
     var maxLen = 0;
-    var tmpStart = 0;
 
-    for(var i = 0 ; i < len ; i++){
-        tmpStart = i;
-        for(var j = i + 1 ; j < len ; j++){
-            console.log("a[" + j + "]: " + a[j] + "    a[" + tmpStart + "]: " + a[tmpStart] + "    diff: " + (a[j] - a[tmpStart]) + "    maxLen: " + maxLen);
-            if( (a[j] - a[tmpStart]) > 1 ){
-                if(maxLen == 0 ){
-                    maxLen = j - tmpStart;
-                    //break;
-                } else if( (a[j] - a[tmpStart]) > maxLen ){
-                    maxLen = j - tmpStart;
-                };
-            };
-            //break;
+    for(var i = 0 ; i < hashFrecuencies.length ; i++){
+        hashFrecuencies[a[i]]++;
+    };
+    maxLen = hashFrecuencies[0] + hashFrecuencies[1];
+    for(var i = 2 ; i < hashFrecuencies.length ; i++){
+        if( (hashFrecuencies[i-1] + hashFrecuencies[i]) > maxLen ){
+            maxLen = hashFrecuencies[i-1] + hashFrecuencies[i];
         };
     };
 
