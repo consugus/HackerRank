@@ -1,0 +1,108 @@
+Alice is playing an arcade game and wants to climb to the top of the leaderboard. Can
+you help her track her ranking as she plays? The game uses Dense Ranking, so its
+leaderboard works like this:
+
+    * The player with the highest score is ranked number 1 on the leaderboard.
+    * Players who have equal scores receive the same ranking number, and the next
+      player(s) receive the immediately following ranking number.
+
+We want to determine Alice's rank as she progresses up the leaderboard. For example,
+the four players on the leaderboard have high scores of 100, 90, 90, and 80. Those
+players will have ranks 1, 2, 2, and 3, respectively. If Alice's scores are 70, 80
+and 105, her rankings after each game are 4th, 3th and 1st.
+
+You are given an array, "scores", of monotonically decreasing leaderboard scores, and
+another array, "alice", of Alice's scores for the game. You must print "m" integers.
+The jth integer should indicate the current rank of alice after her jth game.
+
+Input Format
+    * The first line contains an integer "n", the number of players on the leaderboard. 
+    * The next line contains "n" space-separated integers scores[i], the leaderboard
+      scores in decreasing order.
+    * The next line contains an integer, "m", denoting the number games Alice plays. 
+    * The last line contains "m" space-separated integers alice[j], her game scores.
+
+Constraints
+    * 1 <= n <= 2.10^5
+    * 1 <= m <= 2.10^5
+    * 0 <= socres[i] <= 10^9 for 0 <= i < n
+    * 0 <= alice[j] <= 10^9 for 0 <= j < m
+    * The existing leaderboard, "scores", is in descending order.
+    * Alice's scores "alice", are in ascending order.
+
+Subtask
+For 60% of the maximum score:
+    * 1 <= n <= 200
+    * 1 <= m < 200
+
+Output Format
+Print "m" integers. The jth integer should indicate the rank of alice after playing
+the jth game.
+
+Sample Input 1
+7
+100 100 50 40 40 20 10
+4
+5 25 50 120
+
+Sample Output 1
+6
+4
+2
+1
+
+Explanation 1
+Alice starts playing with  players already on the leaderboard, which looks like this:
+        Rank        Name        Score
+        1           Emma        100
+        1           David       100
+        2           Caroline    50
+        3           Ritika      40
+        3           Tom         40
+        4           Heraldo     20
+        5           Riley       10
+
+After Alice finishes game 0, her score is 5 and her ranking is 6:
+        Rank        Name        Score
+        1           Emma        100
+        1           David       100
+        2           Caroline    50
+        3           Ritika      40
+        3           Tom         40
+        4           Heraldo     20
+        5           Riley       10
+        6           Alice       5
+
+
+After Alice finishes game 1, her score is 25 and her ranking is 4:
+        Rank        Name        Score
+        1           Emma        100
+        1           David       100
+        2           Caroline    50
+        3           Ritika      40
+        3           Tom         40
+        4           Alice       25
+        5           Heraldo     20
+        6           Riley       10
+
+After Alice finishes game 2, her score is 50 and her ranking is tied with Caroline at 2:
+        Rank        Name        Score
+        1           Emma        100
+        1           David       100
+        2           Caroline    50
+        2           Alice       50
+        3           Ritika      40
+        3           Tom         40
+        5           Heraldo     20
+        6           Riley       10
+
+After Alice finishes game 3, her score is 120 and her ranking is 1:
+        Rank        Name        Score
+        1           Alice       120
+        2           Emma        100
+        2           David       100
+        3           Caroline    50
+        4           Ritika      40
+        4           Tom         40
+        5           Heraldo     20
+        6           Riley       10
