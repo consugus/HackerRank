@@ -28,6 +28,30 @@ var fourthLine = "83 129 140 184 198 300 312 325 341 344 349 356 370 405 423 444
 // 169 160 159 153 152 136 133 129 125 125 125 123 118 108 105 97 94 93 90 87 84 84 79 77 73 69 68 68 68 66 65 62 59 53 48 48 44 42 42 39 34 33 31 31 30 17 15 15 6 1
 // #endregion
 
+// #region Test Case Consugus
+var firstLine = "200";
+var secondLine =
+"997 988 981 966 957 937 933 930 929 928 927 926 922 920 916 915 903 896 887 874" +
+" 872 866 863 863 860 859 858 857 857 847 847 842 830 819 815 809 803 797 796 794" +
+" 794 789 785 783 778 772 765 765 764 757 755 751 744 740 737 733 730 730 724 716" +
+" 710 709 691 690 684 677 676 653 652 650 625 620 619 602 587 587 585 583 571 568" +
+" 568 556 552 546 541 540 538 531 530 529 527 506 504 501 498 493 493 492 489 482" +
+" 475 468 457 452 445 442 441 438 435 435 433 430 429 427 422 422 414 408 404 400" +
+" 396 394 387 384 380 379 374 371 369 369 369 368 366 365 363 354 351 341 337 336" +
+" 328 325 318 316 314 307 306 302 287 282 281 277 276 271 246 238 236 230 229 229" +
+" 228 227 220 212 199 194 179 173 171 168 150 144 136 125 125 124 122 118 98 98 95" +
+" 92 88 85 70 68 61 60 59 44 43 35 32 30 28 23 20 13 12 12";
+// var thirdLine = "1";
+var fourthLine = "300";
+var fourthLine = "83 129 140 184 198 300 312 325 341 344 349 356 370 405 423 444" +
+" 465 471 491 500 506 508 539 543 569 591 607 612 614 623 645 670 689 726 744 747" +
+" 764 773 777 787 805 811 819 829 841 905 918 918 955 997";
+// Expected Output
+// Expected: 169 160 159 153 152 136 133 129 125 125 125 123 118 108 105 97 94 93 90 87 84 84 79 77 73 69 68 68 68 66 65 62 59 53 48 48 44 42 42 39 34 33 31 31 30 17 15 15 6 1
+// MyOutput: 169 160 159 153 152 136 133 129 125 124 124 122 117 108 105 97 94 92 90 86 84 83 79 77 73 69 67 67 67 66 65 62 59 53 48 48 44 41 41 38 33 33 31 31 29 17 15 15 5 1
+// fails:                                         x   x   x   x                x     x     x              x  x  x  x                       x  x  x  x           x           x
+// #endregion
+
 
 retorno = eval(secondLine, fourthLine);
 
@@ -40,10 +64,9 @@ function eval(secondLine, fourthLine){
     return "Hola";
 };
 
-
 function climbingLeaderboard(scores, alice) {
-    var scoresLen = scores.length;
-    var aliceLen = alice.length;
+    var scoresLen = scores.length; //console.log("scoreslen: " + scoresLen);
+    var aliceLen = alice.length; //console.log("alicelen: " + aliceLen);
     var answer = [];
 
     var auxPositions = new Array(scores.length);
@@ -55,8 +78,7 @@ function climbingLeaderboard(scores, alice) {
             auxPositions[i] = auxPositions[i-1] + 1;
         };
     };
-    console.log("alice:        " + alice + "\n\nscores:       " + scores + "\n\nauxPositions: " + auxPositions + "\n\n");
-
+    //console.log("alice:        " + alice + "\n\nscores:       " + scores + "\n\nauxPositions: " + auxPositions + "\n\n");
     for(var i = 0 ; i < aliceLen ; i++){
         // console.log(getPosition(alice[i], scores, auxPositions));
         answer.push(getPosition(alice[i], scores, auxPositions));
@@ -69,31 +91,24 @@ function climbingLeaderboard(scores, alice) {
 function getPosition(alice, scores, auxPositions){
     var position = -1;
 
-    if(alice >= scores[0]){
-        return 1;
-    };
-    if(alice < scores[scores.length - 1]){
-        return (auxPositions[auxPositions.length - 1] + 1);
-    };
+    if(alice >= scores[0]){ return 1; };
+    if(alice < scores[scores.length - 1]){ return (auxPositions[auxPositions.length - 1] + 1); };
 
-    var left = 0 ; var rigth = scores.length; var mid;
+    var left = 0 ; var rigth = scores.length-1; var mid;
     while(left <= rigth){
 
-        if( (mid - left) == 1 ){
-            return (auxPositions[left] + 1);
-        };
+        if( (mid - left) == 1 || (rigth - mid) == 1){ return (auxPositions[left] + 1); };
 
         mid = Math.floor( (left+rigth)/2 );
-        //console.log("left: " + left + "   mid: " + mid + "    rigth: " + rigth);
+        //console.log("left: " + left + "("+ scores[left] + ")" + "   mid: " + mid   + "(" + scores[mid]+ ")" + "    rigth: " + rigth  + "("+ scores[rigth]+ ")" + "    mid-left: " + (mid-left));
 
         if(scores[mid] == alice){
             return auxPositions[mid];
         } else if(scores[mid] < alice){
-            rigth = mid - 1;
+            rigth = (mid - 1);
         } else{
-            left = mid + 1;
+            left = (mid);
         };
     };
-
     return position;
 };
