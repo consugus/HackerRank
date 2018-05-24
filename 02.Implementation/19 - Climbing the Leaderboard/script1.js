@@ -42,14 +42,17 @@ var secondLine =
 " 228 227 220 212 199 194 179 173 171 168 150 144 136 125 125 124 122 118 98 98 95" +
 " 92 88 85 70 68 61 60 59 44 43 35 32 30 28 23 20 13 12 12";
 // var thirdLine = "1";
-var fourthLine = "300";
+// var fourthLine = "341 344 349 356 370 405";
+// var fourthLine = "370";
 var fourthLine = "83 129 140 184 198 300 312 325 341 344 349 356 370 405 423 444" +
 " 465 471 491 500 506 508 539 543 569 591 607 612 614 623 645 670 689 726 744 747" +
 " 764 773 777 787 805 811 819 829 841 905 918 918 955 997";
 // Expected Output
 // Expected: 169 160 159 153 152 136 133 129 125 125 125 123 118 108 105 97 94 93 90 87 84 84 79 77 73 69 68 68 68 66 65 62 59 53 48 48 44 42 42 39 34 33 31 31 30 17 15 15 6 1
+// MyOutput: 169 160 159 153 152 136 133 129 125 125 125 123 118 108 105 97 94 93 90 87 84 84 79 77 73 69 68 68 68 66 65 62 59 53 48 48 44 42 42 39 34 33 31 31 30 17 15 15 6 1
+
 // MyOutput: 169 160 159 153 152 136 133 129 125 124 124 122 117 108 105 97 94 92 90 86 84 83 79 77 73 69 67 67 67 66 65 62 59 53 48 48 44 41 41 38 33 33 31 31 29 17 15 15 5 1
-// fails:                                         x   x   x   x                x     x     x              x  x  x  x                       x  x  x  x           x           x
+// fails:                                         x   x   x   x                x     x     x              x  x  x                          x  x  x  x           x           x
 // #endregion
 
 
@@ -78,7 +81,8 @@ function climbingLeaderboard(scores, alice) {
             auxPositions[i] = auxPositions[i-1] + 1;
         };
     };
-    //console.log("alice:        " + alice + "\n\nscores:       " + scores + "\n\nauxPositions: " + auxPositions + "\n\n");
+    console.log("alice: " + alice + "\n\n");
+    // console.log("alice:        " + alice + "\n\nscores:       " + scores + "\n\nauxPositions: " + auxPositions + "\n\n");
     for(var i = 0 ; i < aliceLen ; i++){
         // console.log(getPosition(alice[i], scores, auxPositions));
         answer.push(getPosition(alice[i], scores, auxPositions));
@@ -89,25 +93,26 @@ function climbingLeaderboard(scores, alice) {
 }
 
 function getPosition(alice, scores, auxPositions){
-    var position = -1;
+    var left = 0, rigth = scores.length-1, mid, position = -1;
+    console.log("\nalice : " + alice + "\n\n");
 
     if(alice >= scores[0]){ return 1; };
     if(alice < scores[scores.length - 1]){ return (auxPositions[auxPositions.length - 1] + 1); };
 
-    var left = 0 ; var rigth = scores.length-1; var mid;
     while(left <= rigth){
 
+        //if( (rigth - mid) == 1 ){return auxPositions[rigth] };
         if( (mid - left) == 1 || (rigth - mid) == 1){ return (auxPositions[left] + 1); };
 
         mid = Math.floor( (left+rigth)/2 );
-        //console.log("left: " + left + "("+ scores[left] + ")" + "   mid: " + mid   + "(" + scores[mid]+ ")" + "    rigth: " + rigth  + "("+ scores[rigth]+ ")" + "    mid-left: " + (mid-left));
+        console.log("left: " + left + "("+ scores[left] + ")" + "\tmid: " + mid   + "(" + scores[mid]+ ")" + "\trigth: " + rigth  + "("+ scores[rigth]+ ")" + "\t\t\tmid-left: " + (mid-left) + " " + "\trigth-mid: " + (rigth-mid));
 
         if(scores[mid] == alice){
             return auxPositions[mid];
         } else if(scores[mid] < alice){
-            rigth = (mid - 1);
+            rigth = mid;
         } else{
-            left = (mid);
+            left = mid;
         };
     };
     return position;
