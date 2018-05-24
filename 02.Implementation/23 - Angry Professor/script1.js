@@ -17,8 +17,14 @@ function eval(firstLine, secondLine){
 
 
 function angryProfessor(k, a) {
-    var result = 0;
-
-
-    return result;
+    var count = 0, len = a.length;
+    for(var i = 0 ; i < len ; i++){
+        if(a[i] <= 0){
+            count++;
+        };
+        if(count >= k){
+            return "NO";
+        };
+    };
+    return "YES";
 }
