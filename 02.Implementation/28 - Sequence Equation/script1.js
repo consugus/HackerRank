@@ -14,14 +14,13 @@ function eval(firstLine, secondLine){
 
 
 function permutationEquation(p) {
-    var len = p.length;
     var answer = [];
-
+    //p.unshift("");
+    var len = p.length;
+    console.log(p);
     for(var i = 0 ; i < len ; i++){
-        console.log(i);
+        // console.log(i);
+        answer.push(p.indexOf(p.indexOf(i + 1) + 1) + 1);
     };
-
-
-
     return answer;
 }
