@@ -16,8 +16,17 @@ function eval(firstLine, secondLine){
 
 
 function jumpingOnClouds(c, k) {
-    var answer = 0;
+    var totalE = 100, len = c.length, pos = 0;
+    do{
+        if( (pos + k) >= len ){
+            pos += k-len;
+            totalE = totalE -  1 - 2*c[pos];
+        } else{
+            pos += k;
+            totalE = totalE - 1 - 2*c[pos];
+        };
+        // console.log("pos: " + pos + "\ttotalE: " + totalE);
+    } while(pos != 0);
 
-
-    return answer;
+    return totalE;
 }
