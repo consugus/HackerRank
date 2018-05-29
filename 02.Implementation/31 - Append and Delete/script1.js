@@ -16,7 +16,7 @@ function eval(firstLIne, secondLine, thirdLine){
 
 
 function appendAndDelete(s, t, k) {
-    console.log("s: " + s + "\tt: " + t + "\tk: " + k);
+    console.log("s: " + s + "\tt: " + t + "\tk: " + k + "\n\n");
 
 
 }
