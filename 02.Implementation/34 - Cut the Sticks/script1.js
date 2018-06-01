@@ -14,8 +14,26 @@ function eval(firstLine, secondLine){
 
 
 function cutTheSticks(arr) {
-    var cuts = [];
+    var sticksCut = [], len = arr.length;
+    arr.sort(function ( a, b){return a-b});
+    var size = 0;
 
+    for(var i = 0 ; i < len ; i++){
+        if(arr[i] != 0){
+            size = arr[i];
+        } else{
+            continue;
+        };
 
-    return cuts;
+        var count = 0;
+        for(var j = 0 ; j < len ; j++){
+            if( (arr[j] - size) >= 0 ){
+                count++;
+                arr[j] -= size;
+            };
+        };
+        sticksCut.push(count);
+    };
+
+    return sticksCut;
 }
