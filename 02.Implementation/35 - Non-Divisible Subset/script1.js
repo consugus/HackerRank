@@ -9,6 +9,7 @@ var firstLine = "6 9"; var secondLine = "422346306 940894801 696810740 862741861
 
 retorno = eval(firstLine, secondLine);
 
+
 //Solution
 function eval(firstLine, secondLine){
     var nk = firstLine.split(" ").map( x => parseInt(x) );
@@ -29,18 +30,18 @@ function nonDivisibleSubset(k, S) {
     };
     // console.log("remaindersCounter: " + remaindersCounter);
 
-    // If remainderCounter[0] != 0, add 1 to S` size, because at most one value 
+    // If remainderCounter[0] != 0, add 1 to S` size, because at most one value
     // can be added to the result set
-    if(remaindersCounter[0] != 0){ count++; };
+    if(remaindersCounter[0] >= 1){ count++ };
     // console.log("case 1 count: " + count);
     // If k was an even number and remainderCounter[k / 2] != 0, add 1 to S` size,
     // because at most one value can be added to the result set;
-    if( k%2 == 0 && remaindersCounter[k/2] != 0){ count++; };
+    if( k%2 == 0 && remaindersCounter[k/2] >= 1){ count++ };
     // console.log("case 2 count: " + count);
 
     // Increase the S`size by max(remainderCounter[j],remainderCounter[k-j]) for
     // j = 1, ..., k / 2, where j != (k - j)
-    for(var i = 1 ; i <= k/2 ; i++){
+    for(var i = 1 ; i <= Math.floor(k/2) ; i++){
         if( i != (k-i) ){
             count += Math.max(remaindersCounter[i], remaindersCounter[k-i]);
             // console.log("remaindersCounter[i]: " + remaindersCounter[i] + "\tremaindersCounter[k-i]: " + remaindersCounter[k-i]  + "\tMax: " + Math.max(remaindersCounter[i], remaindersCounter[k-i]) + "\tcount: " + count);
