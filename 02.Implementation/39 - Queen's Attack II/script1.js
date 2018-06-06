@@ -20,7 +20,53 @@ function eval(firstLine, secondLine, thirdLine){
 
 
 function queensAttack(n, k, r_q, c_q, obstacles) {
-    var positionsAttacked = 10;
+    var positionsAttacked = 0;
+
+    positionsAttacked += upForwards(n, k, r_q, c_q, obstacles);
+    positionsAttacked += downForwards(n, k, r_q, c_q, obstacles);
+    positionsAttacked += upBackwards(n, k, r_q, c_q, obstacles);
+    positionsAttacked += downBackwards(n, k, r_q, c_q, obstacles);
+    positionsAttacked += rowForwards(n, k, r_q, c_q, obstacles);
+    positionsAttacked += rowBackwards(n, k, r_q, c_q, obstacles);
+    positionsAttacked += colUp(n, k, r_q, c_q, obstacles);
+    positionsAttacked += colDown(n, k, r_q, c_q, obstacles);
 
     return positionsAttacked;
 }
+
+function upForwards(n, k, r_q, c_q, obstacles){
+
+    return 1;
+};
+
+function upBackwards(n, k, r_q, c_q, obstacles){
+
+    return 1;
+};
+
+function downForwards(n, k, r_q, c_q, obstacles){
+
+    return 1;
+};
+
+function downBackwards(n, k, r_q, c_q, obstacles){
+
+    return 1;
+};
+
+function rowForwards(n, k, r_q, c_q, obstacles){
+
+    return 1;
+};
+
+function rowBackwards(n, k, r_q, c_q, obstacles){
+
+    return 1;
+};
+
+function colUp(n, k, r_q, c_q, obstacles){
+
+    return 1;
+};
+
+function colDown(n, k, r_q, c_q, obstacles){    return 1;};
