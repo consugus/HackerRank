@@ -1,6 +1,6 @@
 //Input
 var firstLine = "4 5"; var secondLine = "10101 11100 11010 00101"; // 5 2
-var firstLine = "3 3"; var secondLine = "10101 11110 00010"; // 3 1
+// var firstLine = "3 5"; var secondLine = "10101 11110 00010"; // 3 1
 
 // #region Test Case 2
 // var firstLine = "100 100";
@@ -52,28 +52,42 @@ function eval(firstLine, secondLine){
     return "Hola";
 };
 
+function acmTeam2(topic){
+    var topicMax = -1, teams = 0, noTopics = 0, count = 0;
+    var n = topic.length, m = topic[0].length;
+
+    for(var i = 0 ; i < n ; i++){
+        for(var j = i + 1 ; j < n ; j++){
+            count = 0;
+            for(var k = 0 ; i < m ; k++){
+                if(topic[k].charAt(i)){
+
+                };
+            };
+        };
+    };
+
+
+};
 
 function acmTeam(topic) {
-    var maxTopics = 0, maxTeamsAll = 0, len = topic.length, ret = "", topicsLen = topic[0].length;
+    var maxTopics = 0, maxTeamsAll = 0, n = topic.length, ret = "", m = topic[0].length;
 
-    for(var i = 1 ; i <= len ; i++){
-        var tmpStr = "";
-        for(var j = i+1 ; j <= len ; j++){
+    for(var i = 1 ; i <= n ; i++){
+        for(var j = i+1 ; j <= n ; j++){
 
             var tmp = 0;
-            for(var k = 0 ; k < topicsLen ; k++){
-
+            for(var k = 0 ; k < m ; k++){
                 // console.log(i + " " + j + ":\t" + topic[i-1][k] + " " + topic[j-1][k]);
                 if(topic[i-1][k] == "1" || topic[j-1][k] == "1"){
                     tmp++;
                 };
-                if(maxTopics < tmp){
+                if( tmp > maxTopics){
                     maxTopics = tmp;
-                };
-            };
-
-            if(tmp == topicsLen){
+                    maxTeamsAll = 1;
+                } else if(tmp == maxTopics){
                 maxTeamsAll++;
+                };
             };
         };
 
