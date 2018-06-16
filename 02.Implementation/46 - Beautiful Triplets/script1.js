@@ -14,9 +14,18 @@ function eval(firstLine, secondLine){
 
 
 function beautifulTriplets(d, arr) {
-    var numberOfBeautifulTriplets = 0;
-
-
+    var numberOfBeautifulTriplets = 0, len = arr.length;
+    for(var i = 0 ; i < len ; i++){
+        for(var j = i+1 ; j < len ; j++){
+            if( (arr[j] - arr[i]) == d ){
+                for(var k = j+1 ; k < len ; k++){
+                    if( (arr[k] - arr[j]) == d ){
+                        numberOfBeautifulTriplets++;
+                    };
+                };
+            };
+        };
+    };
 
     return numberOfBeautifulTriplets;
 }
