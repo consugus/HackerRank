@@ -1,0 +1,39 @@
+Brenno loves chocolates and goes to the store with "n" money in his pocket. The
+price of each chocolate is "c". The store offers a discount: for every "m" package
+he gives to the store, he gets a free chocolate. How many Brenno chocolates can he
+eat?
+
+Input Format:
+    * The first line contains the number "t" of test cases.
+    * "t" rows will follow, each containing three integers "n", "c", and "m"
+
+Output Format:
+Print the total number of chocolates that Brenno eats.
+
+Restrictions:
+    * 2 <= n <= 100.000
+    * 1 <= c <= n
+    * 2 <= m <= n
+
+Input Sample
+3
+10 2 5
+12 4 4
+6 2 2
+
+Output Example
+6
+3
+5
+
+Explanation
+    * In the first case, he can buy 5 chocolates for $10 and change the 5 packages
+      for 1 more chocolate, so that the total number of chocolates he can eat is 6.
+
+    * In the second case, he can buy 3 chocolates for $12. However, he would need 4
+      packages to trade for 1 more chocolate. He can not take advantage of the offer
+      and consequently the total number of chocolates remains 3.
+
+    * In the third case, he can buy 3 chocolates for $6 and exchange 2 packages for
+      1 more chocolate. After consumption, he exchanges the remaining 2 containers
+      for 1 more chocolate, totaling 5.
