@@ -1,0 +1,49 @@
+The school term starts soon, and the students need to be sorted into their respective
+sections. There are "n" students numbered 1 to n, and "m" sections numbered 1 to m.
+
+Section i needs to have exactly a[i] students. To simplify the process, the school
+has decided to assign students to sections in increasing student number, which means
+the first a[i] students will be assigned section 1, the next a[2] students will be
+assigned section 2, and so on.
+
+Your student number is "k". Which section will you be assigned to?
+
+Complete the function |whichSection| which takes in two integers "n" and "k" and an
+integer array a = [a1, a2, .., am ] and returns the section number you will be
+assigned to, assuming you are student number .
+
+Input Format
+    * The first line of input contains "t", the number of scenarios.
+    * The description of "t" scenarios follow, each described in two lines: 
+        - The first line contains three space-separated integers "n", "k" and "m".
+        - The second line contains "m" space-separated integers a1, a2, .., am.
+
+Constraints
+    * 1 <= t <= 250
+    * 1 <= k <= n <= 500
+    * 1 <= m <= 500
+    * 1 <= ai <= n
+    * a1 + a2 + .. + am = n
+
+Output Format
+For each scenario, print a single line containing a single integer denoting the
+section in which student number "k" will be assigned to.
+
+Sample Input 0
+1
+470 143 5
+11 24 420 6 9
+
+Sample Output 0
+3
+
+Explanation 0
+There are n = 470 students, and there are 5 sections with sizes
+[a1, a2, a3, a4, a5] = [11, 24, 420, 6, 9]. This means that:
+
+    * Students 1 to 11 get assigned section 1.
+    * Students 12 to 35 get assigned section 2.
+    * Students 36 to 455 get assigned section 3.
+    * Students 456 to 461 get assigned section 4.
+    * Students 462 to 470 get assigned section 5.
+Since you are student k = 143, you get assigned section 3.
