@@ -1,0 +1,38 @@
+In a new version of the game Minute to Win It, the math round involves manipulating
+arrays to meet the given condition. In the challenge, you are given an array of "n"
+numbers [a0, a1, .., an-1] and an integer "k". In one minute, you can change any
+element of the array to any integer you want. Find the minimum amount of time you
+have to spend so that the following condition is satisfied:
+        for all i from 1 to n-1, a[i] - a[i-1] = k.
+
+For example, consider the array [1, 2, 5] and k = 2. Then the condition can be
+satisfied in 1 minute by replacing the 2 with a 3.
+
+        see image.png
+
+Complete the function |minuteToWinIt| which accepts an array "a" of "n" integers
+and an integer "k" as input and returns the minimum amount of time in minutes.
+
+Input Format
+    * The first line contains two space-separated integers "n" and "k".
+    * The second line contains the array in the form of "n" space-separated integers
+      a[0], a[1], .., a[n-1].
+
+Constraints
+    * 2 <= n <= 100.000
+    * |k| <= 100.000
+    * a[i] <= 100.000
+
+Output Format
+Print the minimum number of minutes needed to reorder the array.
+
+Sample Input 0
+6 2
+1 2 5 7 9 85
+
+Sample Output 0
+2
+
+Explanation 0
+The given array is [1, 2, 5, 7, 9, 85]. If we change 2 -> 3 and 85 -> 11 at index 1
+and 5 respectively, we get the desired array [1, 3, 5, 7, 9, 11].
