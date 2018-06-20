@@ -1,0 +1,90 @@
+Janet is in an Uber on her way to an interview. The driver promises to take her to
+the venue as soon as possible. The driver is aware that:
+
+    * There are "n" junctions in the city of Mumbai, numbered from 1 to "n".
+    * Janet's interview location is at junction "n". They are initially at junction 1.
+    * There are "m" bidirectional roads connecting some pairs of junctions, each one
+      requiring some amount of time to pass through it.
+
+At every junction, there are traffic lights denoting whether they are allowed to go
+further or to wait. Traffic lights have two colors, |red| and |greeen|. The driver
+can commute through junctions based on these conditions:
+
+    1. At any junction, if the traffic signal's light is green, then they can go
+       immediately, otherwise, they have to wait until traffic signal becomes green.
+    2. Traffic signal changes its color every  seconds of time at all junctions
+       simultaneously.
+
+Initially, at the 0th second, all traffic lights have changed to green color at all
+the junctions. If the cab driver reaches a junction at a second when the traffic
+light changes its color, then he sees the traffic light after the change.
+
+Can you help the driver determine the least amount of time needed to reach the
+interview location?
+
+Complete the function |leastTimeToInterview| which takes in three integers "n", "k"
+and "m" and returns the least amount of time needed to reach the interview location,
+in seconds. You need to take the information about the roads from the standard input.
+They will be specified in "m" lines, as described in the input format section below.
+
+Input Format
+    * The first line contains an integer "n", the number of junctions.
+    * The second line contains an integer "k" denoting the time taken by a signal
+      to change its color.
+    * The third line contains an integer "m" denoting the number of roads.
+    * The next "m" lines describe the roads. Each consist of three space-separated
+      integers "i", "j" and "t" where "i" and "j" denotes a road between two junctions
+      and  denotes time required to travel through it.
+
+Constraints
+    * 1 <= n <= 10.000
+    * 1 <= k <= 100
+    * 1 <= m <= 100.000
+    * 1 <= i, j <= n
+    * 1 <= t <= 1000
+
+        * There can be self-loops, i.e., roads connecting a junction to itself.
+        * There is at least one path from junction 1 to junction "n".
+
+Output Format
+Print a single integer denoting the shortest amount of time required to reach
+junction "n".
+
+Sample Input 0
+7
+4
+7
+1 2 3
+2 3 1
+1 4 4
+4 6 7
+7 5 2
+3 5 1
+4 5 5
+
+Sample Output 0
+11
+
+Explanation 0
+    * Junction number 1: The cab driver can visit any of the adjacent junctions.
+      He chooses to visit junction 2. Since the traffic signal is |greeen| at the
+      0th second, He can visit junction 2 which takes 3 seconds.
+
+    * Junction number 3: The traffic signal is still |green| since traffic signals
+      change color every 4 seconds. The cab driver now chooses to visit junction 3
+      which takes 1 second, and we are now at the 4th second.
+
+    * Junction number 3: 4 seconds have passed, and the traffic signal has already
+      become |red|. They have to wait for 4 more seconds until the signal again
+      becomes |green|.
+
+    * Junction number 5: The cab takes the route to junction 5 which takes 1 second.
+      So far, 9 seconds have passed.
+
+    * Junction number 7: The traffic signal is still |green| and the cab can go to
+      junction 7. It takes 2 seconds to reach junction 7.
+
+In total, it takes 11 seconds to go from junction 1 to junction 7. It can be shown
+that this is the minimum amount of time possible.
+
+        see image.png
