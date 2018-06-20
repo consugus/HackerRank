@@ -5,6 +5,11 @@ var firstLine = "6 2", secondLine = "1 2 5 7 9 85"; // 2 OK
 // var firstLine = "3 2", secondLine = "2 2 5"; // 2 OK
 // var firstLine = "6 2", secondLine = "7 85 87 13 15 17"; // 2 OK
 // var firstLine = "6 1", secondLine = "1 1 3 4 5 6"; // 1 OK
+// var firstLine = "5 2", secondLine = "7 7 7 7 7"; // 4 OK
+// var firstLine = "2 2", secondLine = "1 3"; 0 OK
+// var firstLine = "10 1", secondLine = "1 2 3 20 21 22 23 8 9 10"; // 4 OK
+var firstLine = "5 4", secondLine = "1 4 8 12 20"; // 2 OK
+
 
 retorno = eval(firstLine, secondLine);
 
@@ -21,7 +26,7 @@ function eval(firstLine, secondLine){
 function minuteToWinIt(a, k) {
     // Return the minimum amount of time in minutes.
     var a1 = [], a2 = [], a3 = [];
-    var count = 0, count1 = 0, count2 = 0, count3 = 0, len = a.length;
+    var count1 = 0, count2 = 0, count3 = 0, len = a.length;
     for(var i = 0 ; i < len ; i++){
         a1[i] = a[i]; a2[i] = a[i]; a3[i] = a[i];
     };
