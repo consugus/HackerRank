@@ -1,0 +1,83 @@
+Right away, some participants noticed that there are greedy constructions that maximize the number of superior
+characters. However, that's not enough; it's not actually possible to construct the string since there are too
+many characters!
+
+There are multiple approaches to solve the problem, and I will not discuss them all.
+
+First, maximization problems can usually be turned easier at a cost of a log factor by using binary search. We
+simply binary search the answer, say "x", which we know to be between 0 and Sum(f[i]). This simplifies the
+problem from "What is the largest possible x" to "Is it possible to have at least "x" superior characters?" which
+has a yes-no answer.
+
+So we now have to determine whether we can form a string with  superior characters with the available letters.
+A couple observations will help us.
+
+First, no two superior characters can appear consecutively, and they must have neighbors on both sides. Thus,
+there must be at least x+1 non-superior characters, one between each pair of superior characters, and two at the
+ends. Thus, there are at least x+x+1 characters, i.e.,  2x + 1 <= t.
+
+Next, we can be greedy with the selection and choose the "x" largest characters to be the superior characters.
+This can be seen as follows: if there is a non-superior character larger than a superior character, then we
+can swap them and not decrease the number of superior characters. We can repeat this until the superior
+characters are the  largest characters.
+
+Now, let "s" be the smallest superior letter, which is uniquely determined. We now consider four quantities:
+
+	* Let "r" be the number of characters strictly larger than "s".
+	* Let "l" be the number of characters strictly smaller than "s".
+	* Let "r[s]" be the number of superior characters equal to "s".
+	* Let l[s] be the number of non-superior characters equal to "s".
+Notice that l+r+l[s]+r[s] = t, r[s]+r = x, and r[s] >= 1. We also assume that 2x+1 <= t, so there are enough
+non-superior characters to "fill the gaps" between the superior ones. We consider two kinds of superior characters:
+
+	* The "r" superior characters strictly larger than "s" can be paired next to any non-superior characters
+	  and be totally fine since they are strictly larger.
+	* However, the r[s] superior characters equal to "s" must be paired with strictly smaller superior
+	  characters. This gives us the requirement that l >= r[s]+1.
+
+So far, we have given a few requirements. But it turns out that these are already sufficient! The algorithm to
+construct the string with "x" superior characters will then be as follows:
+
+	* Place the top x characters in even positions consecutively in increasing order. There will be enough
+	  even positions since .
+	* Next, place the smallest letters on odd positions consecutively in increasing order, and when we run
+	  out of such positions, just place them on the remaining even positions. The first r[s] superior strings
+	  will be paired with strictly smaller letters since l >= r[s]+1, and the rest will be paired with
+	  non-superior letters since they are strictly larger than "s".
+
+This gives us an O(alpha) time check, where alpha is the alphabet size, to compute whether there can be at least
+"x" superior characters! The overall algorithm runs in O(alpa Log t) time,.due to the log factor.
+
+As a final note, we can convert the above inequalities into a faster check to do everything in O(alpha) time. It
+is an exercise to the reader to figure it out.
+
+	#include <cmath>
+	#include <cstdio>
+	#include <vector>
+	#include <iostream>
+	#include <algorithm>
+	using namespace std;
+
+	int main() {
+	int t;
+	    cin>>t;
+	    while (t--){
+	long long a[26],sm=0,ans=0,t=0;
+        	for (int i=0;i<26;i++) cin>>a[i],sm+=a[i];
+        	for (int i=0;i<26;i++){
+       			if (t<=sm-t-1){ans=t;}
+            		auto s=sm-t-a[25-i];
+            		auto m=a[25-i];
+            		if (t+m>s-1&&s>0){
+                		auto x = s-1-t;
+                		auto y=min(t,(m-x)/2);
+                		ans=t+x+y;break;
+            		}
+            		t+=a[25-i];
+        	}
+        	cout<<ans<<endl;
+    	}
+    	return 0;
+}
+
+
