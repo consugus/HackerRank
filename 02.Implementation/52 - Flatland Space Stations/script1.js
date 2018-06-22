@@ -17,8 +17,17 @@ function eval(firstLine, secondLine){
 function flatlandSpaceStations(n, c) {
     var len = c.length;
     var maxDist = 0;
-
-
+    for( var i = 0 ; i < n ; i++){
+        var tmp = Number.MAX_VALUE;
+        for(var j = 0 ; j < len ; j++){
+            if( Math.abs(i - c[j]) < tmp  ){
+                tmp = Math.abs(i - c[j]);
+            };
+        };
+        if( tmp > maxDist){
+            maxDist = tmp
+        };
+    };
 
     return maxDist;
 }
