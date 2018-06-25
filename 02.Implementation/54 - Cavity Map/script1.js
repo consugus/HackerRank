@@ -17,7 +17,7 @@ function eval(firstLine, secondLine){
 
 
 function cavityMap(grid) {
-    var len = grid.length, str = "";
+    var len = grid.length, str = [];
 
     console.log("grid");
     for(var i = 0 ; i < len ; i++){
