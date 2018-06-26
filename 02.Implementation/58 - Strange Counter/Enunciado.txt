@@ -1,0 +1,33 @@
+Bob has a strange counter. At the first second, it displays the number 3. Each
+second, the number displayed by the counter decrements by 1 until it reaches 1.
+
+The counter counts down in cycles. In next second, the timer resets to
+2 x InitialNumberForThePriorCycle and continues counting down. The diagram below
+shows the counter values for each time  in the first three cycles:
+
+        see strangeCounter.png
+
+Find and print the value displayed by the counter at time "t".
+
+Input Format
+    * A single integer denoting the value of "t".
+
+Constraints
+    * 1 <= t <= 10^12
+
+Subtask
+    * 1 <= t <= 10^5 for 60% of the maximum score.
+
+Output Format
+Print the value displayed by the strange counter at the given time "t".
+
+Sample Input
+4
+
+Sample Output
+6
+
+Explanation
+Time t = 4 marks the beginning of the second cycle. It is double the number
+displayed at the beginning of the first cycle: 2 x 3 = 6. This is also shown in the 
+diagram in the Problem Statement above.
