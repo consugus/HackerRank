@@ -1,5 +1,8 @@
 //Input
-var firstLine = "4"; // 6
+var firstLine = "10"; // 6
+var firstLine = "1000000000000"; // 649267441662 correct answer, but too much time
+// var firstLine = "1000000000"; // 649267441662 correct answer, but too much time
+
 
 retorno = eval(firstLine);
 
@@ -13,28 +16,22 @@ function eval(firstLine){
 
 function strangeCounter(t) {
     var display = 0, value = 3, startTime = 1, endTime = startTime+value-1;
-    console.log("t: " + t + "\n\n");
-    console.log("Primera Vez: value: " + value + "\tstartTime: " + startTime + "\tendTime: " + endTime);
-    console.log( "Es true el while?: " + (startTime < t) + "\n\n");
 
-    while(startTime < t){
-        value = 2*value;
-        startTime = endTime + 1;
-        endTime = startTime+value-1;
-        console.log("value: " + value + "\tstartTime: " + startTime + "\tendTime: " + endTime);
-    };
-
-    for(var i = startTime ; i <= endTime ; i++ ){
-        if(startTime == t){
-            console.log("entró acá");
-            display = value;
-            break;
-        } else{
-            value--;
-            startTime++;
+    if(endTime <= t){
+        while(endTime < t){
+            value = 2*value;
+            startTime = endTime + 1;
+            endTime = startTime+value-1;
         };
-        console.log("i: " + i);
     };
 
-    return display;
+    // this works but gives TLE error, works fine up to 10^9
+    // while(t > startTime){
+    //     startTime++;
+    //     value--;
+    // };
+
+    value -= (t-startTime);
+
+    return value;
 }
