@@ -47,11 +47,8 @@ function absolutePermutation(n, k) {
     } else if( n%(2*k) == 0 && 2*k <= n ) {
         var add = true, count = 0;
         for(var i = 1 ; i <= n ; i++){
-            if(add){
-                answer.push(i+k);
-            }else{
-                answer.push(i-k);
-            };
+
+            (add) ? answer.push(i+k) : answer.push(i-k)
 
             count++;
 
