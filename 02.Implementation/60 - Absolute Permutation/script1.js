@@ -14,8 +14,11 @@ var firstLine = "3", secondLine = ["2 1", "3 0", "3 2"];    // 2 1
 var firstLine = "10", secondLine = ["2 1", "10 5", "7 5", "2 1", "2 0", "2 0", "1 0", "10 5", "10 0", "6 0"];
 //"2 1", "6 7 8 9 10 1 2 3 4 5", "-1", "2 1", "1 2", "1 2", "1", "6 7 8 9 10 1 2 3 4 5", "1 2 3 4 5 6 7 8 9 10", "1 2 3 4 5 6"
 
-var firstLine = "1", secondLine = ["10 5"]; // original: 1 2 3 4 5  6 7 8 9 10
+// var firstLine = "1", secondLine = ["10 5"]; // original: 1 2 3 4 5  6 7 8 9 10
                                             // answer:   6 7 8 9 10 1 2 3 4 5
+
+// var firstLine = "1", secondLine = ["8 2"]; // original: 1 2 3 4 5 6 7 8
+                                            // answer:  3 4 1 2 7 8 5 6
 
 
 
@@ -38,15 +41,39 @@ function absolutePermutation(n, k) {
 
     // Declaration of array
     for(var i = 1 ; i <= n ; i++){ arr.push(i); };
-    // console.log(arr.join(" "));
+    // console.log( "Original: " + arr.join(" ")  + "\tn: " + n + "\tk: " + k);
+    // console.log("Expected: 3 4 1 2 7 8 5 6\n\n");
 
+
+    // console.log("k == 0: " + k == 0);
+    // console.log("1. n%(2*k) != 0: " + (n%(2*k) == 0) + "\tn%(2*k): " + (n%(2*k))  );
+    // console.log("2. 2*k <= n: " + ( (2*k) == n) + "\t2*k: " + (2*k) );
     if(k == 0){
         answer = arr;
-    } else if( n%(2*k) != 0 && 2*k <= n ) {
-        var add = true;
+    } else if( n%(2*k) == 0 && 2*k <= n ) { // already checked
+        var add = true, count = 0;
         for(var i = 1 ; i <= n ; i++){
-            (add) ? answer.push(i+k) : answer.push(i-k);
-            add = ( (i%k == 0) && add ) ? false : true;
+            // (add) ? answer.push(i+k) : answer.push(i-k);
+            // add = ( (i%k == 0) && add ) ? false : true;
+            if(add){
+                answer.push(i+k);
+            }else{
+                answer.push(i-k);
+            };
+
+            count++;
+
+            if(count == k){
+                add = !add;
+                count = 0;
+            };
+
+            // console.log( i + ". i%k == 0: " + (i%k == 0) + "\tadd: " + add + "\t\t(i%k == 0) && add): " + ( (i%k == 0) && add) );
+            // if( (i%k == 0) && add ){
+            //     add = false; // false
+            // } else{
+            //     add = true; // true
+            // };
         };
     } else{
         answer.push(-1);

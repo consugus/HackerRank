@@ -29,8 +29,8 @@ first k consecutive numbers with the second k consecutive numbers
 numbers, we can perform such a swap
 
 Example for n = 12 and k = 3 :-
-Before Permutation:- 1,2,3 4,5,6 7,8,9 10,11,12 
-After Permutation :- 4,5,6 1,2,3 10,11,12 7,8,9
+Before Permutation: 1,2,3,4,5,6,7,8,9,10,11,12 
+After Permutation : 4,5,6,1,2,3,10,11,12,7,8,9
 
 
 
