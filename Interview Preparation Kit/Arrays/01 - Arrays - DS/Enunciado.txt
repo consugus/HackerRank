@@ -1,0 +1,28 @@
+An array is a type of data structure that stores elements of the same type in a
+contiguous block of memory. In an array, "a", of size "n", each memory location has
+some unique index, "i" (where 0 <= i < n), that can be referenced as a[i].
+
+Given an array, "a", of "n" integers, print each element in reverse order as a
+single line of space-separated integers.
+
+Note: If you've already solved our C++ domain's Arrays Introduction challenge, you
+may want to skip this.
+
+Input Format
+    * The first line contains an integer, "n" (the number of integers in "a").
+    * The second line contains "n" space-separated integers describing "a".
+
+Constraints
+    * 1 <= n <= 1000
+    * 1 <= a[i] <= 10.000, where a[i] is the ith integer in "a"
+
+Output Format
+Print all "n" integers in "a" in reverse order as a single line of space-separated
+integers.
+
+Sample Input 1
+4
+1 4 3 2
+
+Sample Output 1
+2 3 4 1
