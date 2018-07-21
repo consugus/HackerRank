@@ -24,9 +24,6 @@ function arrayManipulation(n, queries) {
     var arr = new Array(5);
     // console.log("arr: " + arr + "\tlen: " + queries.length);
 
-
-    var largestValue = 0;
-
     for(var i = 0 ; i < queries.length ; i++){
         var a = queries[i][0], b = queries[i][1], k = queries[i][2];
 
@@ -37,7 +34,7 @@ function arrayManipulation(n, queries) {
                 arr[j] += k;
             };
         };
-        // console.log("queries[" + i + "]: " + queries[i] + "\t\tarr: " + arr);
+        console.log("queries[" + i + "]: " + queries[i] + "\t\tarr: " + arr);
     };
     arr.sort( (a,b) => (b-a) );
 
