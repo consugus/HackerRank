@@ -18,7 +18,7 @@ function eval(firstLine, secondLine){
 function processData(input) {
     //Enter your code here
     var len = input.length, stack = [], output = [];
-    console.log("input: " + input[0] + "\tlen: " + len);
+    // console.log("input: " + input[0] + "\tlen: " + len);
     for(var i = 0 ; i < len ; i++){
         switch(input[i][0]){
             case 1: // unshift element
