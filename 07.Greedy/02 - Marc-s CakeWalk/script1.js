@@ -2,7 +2,7 @@
 
 //          Syncronous mode (deprecated)
 var archivoTxt = new XMLHttpRequest();      // objet that requests data from the server
-archivoTxt.open("GET", "TestCases/TestCaseA-Input.txt", false);   // specifies the type of request; parameters:  Method, path/file, Async
+archivoTxt.open("GET", "TestCases/TestCaseB-Input.txt", false);   // specifies the type of request; parameters:  Method, path/file, Async
 archivoTxt.send();                          // execute the request
 var contenido = archivoTxt.responseText;
 // console.log("contenido:\n" + contenido);     // display the response
@@ -30,8 +30,13 @@ function evaluate(contenido){
 
 
 function marcsCakewalk(calorie) {
-    console.log("calorie: " + calorie);
 
+    calorie.sort(function(a,b){ return b-a });
 
-    return "Hola que tal";
+    var miles = 0, len = calorie.length;
+    for(var i = 0 ; i < len ; i++){
+        miles += (Math.pow(2,i))*calorie[i];
+    };
+
+    return miles;
 }
