@@ -33,20 +33,14 @@ function eval(contenido){
 
 function missingNumbers(arr, brr) {
 
-    // console.log("arr: " + arr + "\nbrr: " + brr);
-
     var plusA = 0, plusB = 0, missing = [], i = 0;;
     var len = Math.max(arr.length, brr.length);
 
     // finding max and min of brr (the longest)
     var max = Number.MIN_SAFE_INTEGER, min = Number.MAX_SAFE_INTEGER;
     for(var i = 0 ; i < brr.length ; i++){
-        if(brr[i] > max){
-            max = brr[i]
-        };
-        if(brr[i] < min){
-            min = brr[i]
-        };
+        if(brr[i] > max){ max = brr[i] };
+        if(brr[i] < min){ min = brr[i] };
     };
 
     var diff = new Array (max-min+2).join("0").split("").map( x => parseInt(x) );
