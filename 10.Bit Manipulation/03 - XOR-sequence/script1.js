@@ -17,29 +17,33 @@ var content = archivoTxt.responseText;
 // };
 // #endregion
 
-var A = []; A.push(0);
 retorno = eval(content);
 
 //Solution
 function eval(content){
     content = content.split("\n");
     var queries = content.shift();
+
+    var A = []; A.push(0);
+    for(var i = 1 ; i < 100 ; i++){
+        A.push(A[i-1] ^ i);
+    };
+
+
     // console.log("queries: " + queries + "\tcontent: " + content);
     for(var i = 0 ; i < queries ; i++){
         var lr = content[i].split(" ").map( x => parseInt(x) );
         var l = lr[0], r = lr[1];
         // console.log("l: " + l + "\tr: " + r);
-        console.log(xorSequence(l, r));
+        console.log(xorSequence(l, r, A));
     };
 };
 
 
 
-function xorSequence(l, r) {
+function xorSequence(l, r, A) {
     console.log("A.length: " + A.length);
-    for(var i = 1 ; i <= r ; i++){
-        A.push(A[i-1] ^ i);
-    };
+    console.log(A);
 
     var xorSum = 0;
     for(var i = l ; i <= r ; i++){
