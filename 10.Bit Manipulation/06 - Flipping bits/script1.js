@@ -38,7 +38,6 @@ function flippingBits(N) {
     for (var i = 0 ; i < 32 ; i++){
         biggestNumber += Math.pow(2,i);
     };
-    // console.log("biggestNumber: " + biggestNumber);
 
     return (biggestNumber-N);
 }
