@@ -38,11 +38,8 @@ function sumXor(n) {
         if(n%2 == 0){
             count++;
         };
-        // count += n%2? 0 : 1;
         n  = Math.floor(n/2);
-        console.log("n: " + n);
     };
-    console.log("count: " + count);
 
     return Math.pow(2,count);
 }
