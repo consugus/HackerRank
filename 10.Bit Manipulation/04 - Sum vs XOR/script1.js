@@ -20,7 +20,7 @@
 
 var firstLine = 4       // 4
 // var firstLine = 5       // 2
-// var firstLine = 10      // 4
+var firstLine = 10      // 4
 
 retorno = eval(firstLine);
 
@@ -32,7 +32,17 @@ function eval(firstLine){
 
 
 function sumXor(n) {
-    console.log("n: " + n)
+    n = 10;
+    var count = 0;
+    while (n) {
+        if(n%2 == 0){
+            count++;
+        };
+        // count += n%2? 0 : 1;
+        n  = Math.floor(n/2);
+        console.log("n: " + n);
+    };
+    console.log("count: " + count);
 
-    return "Hola"
+    return Math.pow(2,count);
 }
